@@ -1,0 +1,143 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapter4
+
+\pagestyle{fancy} 
+\chapter{From dynamic coefficients to dynamic parameters}
+\label{cha:chap4}
+\vspace{1cm}
+
+\section{Introduction}
+
+In Section~\ref{sec:num} is presented a set of identifiable dynamic coefficients (or \emph{base parameters}, as in~\cite{khalil02}) for the KUKA LWR-IV robot. 
+
+It has been exploited the fundamental property of linear dependence of the robot dynamic equations in terms of a set of dynamic coefficients.
+These coefficients are proper combinations of inertial data of the robot links (as masses, centers of mass and elements of the inertia tensors). By inspection of the symbolic dynamic equation~(\ref{eq:dynmod}) it is possible to retrieve a dynamic coefficients vector $\piv$ (which is possibly successively refined, as shown in Section~\ref{sec:dynamic_identification}), while using instead the modified Denavit-Hartenberg convention~(\cite{craig86}) it is easy to build vector $\piv \in \Real^{10n}$ (with $n$ the number of links) in the form~(\ref{eq:pi_craig}). 
+
+While the original dynamic parameters may be disposed into a vector so that its elements appear linearly in the kinetic and potential energy of the robot, and thus also in its dynamic equations (the \emph{standard parameters} mentioned in~\cite{khalil02}), their grouping into dynamic coefficients is a necessary step for guaranteeing a full rank regressor matrix in the identification problem~(\cite{swevers07}). 
+
+When deriving the Lagrangian model of a robot in symbolic form, the regrouping of dynamic parameters can be performed in different ways (\cite{gautier90,gaz14}), so as to yield a (possibly) minimal number of dynamic coefficients -- the only quantities that really matter in determining robot motion. Moreover, some of the original dynamic parameters will never appear in the equations. As a result, one may characterize the robot inertial quantities that cannot be observed through any motion experiments (i.e., that play no role in the dynamics), and those that can be estimated but only in groups (on sufficiently exciting trajectories). In general, only a very small number of parameters will appear as singletons, being thus separately identifiable.
+
+In many cases, the experimental identification (or the a priori knowledge) of the complete set of dynamic coefficients $\piv$ of a robot will be sufficient for control and planning purposes. However, being able to extract from the identified dynamic coefficients some feasible numerical values for the original dynamic parameters is a relevant objective, at least in the following two operative situations:
+\begin{itemize}
+ \item If we wish to perform realistic dynamic simulations with standard systems like V-REP (\cite{vrep}). In fact, in all CAD-based systems, the user needs to specify explicitly the 10 dynamic parameters of each rigid body (viz., link), in some associated kinematic reference frame. Indeed, one can insert fictitious values (``don't care'') for all those parameters that will not appear (an information that is known, in general, only at the end of the parameter grouping procedure).
+ \item When implementing model-based control laws, e.g., feedback linearization control, under hard real-time constraints. The standard solution for robots with a large number of DOF is based on the recursive Newton-Euler (N-E) numerical algorithm (\cite{luh80b}). Again, the usual routine requires the knowledge of the dynamic parameters of each link in the open kinematic chain. Notably, the same issue is present also in the generalization of the N-E algorithm to robots with joint elasticity (\cite{buondonno15}), where computations in symbolic form become very heavy.
+\end{itemize}
+
+In this chapter, it will be addressed the problem of recovering a usable set of values for the original robot parameters, starting from the identified dynamic coefficients (\cite{gaz16}), by means of nonlinear optimization techniques (\cite{kirkpatrick83,nelder65,russell03}). These techniques are briefly described in Section~\ref{sec:nonlinopt}, then the problem is formulated for the KUKA LWR-IV robot, and finally a validation experiment (using a N-E routine) has been reported.
+
+
+\section{Local and global nonlinear optimization techniques}
+\label{sec:nonlinopt}
+
+With \emph{optimization} is indicated the selection of a ``best'' element (with regard to some criteria) from some set of available alternatives.
+
+Let $f: \Real^p \rightarrow \Real$ be a function that relates a vector $\xv \in \Real^p$ to a real value $f(\xv)$. A local minimization problem consists in finding a vector $\xv^* \in \Real^p$ such that $f(\xv^*) \le f(\xv')$, $\xv' \neq \xv^*$, $\forall \xv' \in V$, with $V \subseteq \Real^p$ neighborhood of $\xv^*$. If we are interested, conversely, in finding a function $f$ such that $f(\xv^*) \ge f(\xv')$ $\forall \xv' \in V$, then we have a local maximization problem. In case we are interested in finding a vector $\xv^o$ such that $f(\xv^o) \le f(\xv')$ ($f(\xv^o) \ge f(\xv')$), $\forall \xv' \in \Real^p$ we have a global minimization (maximization) problem. If the solution of the problem is sought in a subset $D$ of $\Real^p$ ($D \subseteq \Real^p$), then we have a constrained problem.
+
+Several techniques can be adopted for solving this class of problems, both analytically and numerically~(\cite{nemhauser89}). In particular, in this chapter it will be presented one method for numerical local optimization (Nelder-Mead method,~\cite{nelder65}) and global optimization (Simulated Annealing method,~\cite{kirkpatrick83}.
+
+\subsection{Nelder-Mead method}
+
+The \emph{Nelder-Mead method}~(\cite{nelder65}) is applied to local optimization problems where the function $f$ can be nonlinear and for which derivatives may not be known. However, the Nelder-Mead technique is a heuristic search method that can converge to non-stationary points, since it approximates a local optimum of a problem with $n$ variables when the objective function $f$ varies smoothly. 
+
+In $n$ dimensions, the algorithm maintains a set of $n+1$ test points arranged as a simplex, which is a special polytope of $n+1$ vertices in $n$ dimensions (like, for instance, a triangle on a plane, a tetrahedron in 3-dimensional space and so on), and extrapolates the behavior of the objective function measured at each test point, in order to find a new test point and to replace one of the old test points with the new one. This replacement is repeated throughout the duration of the algorithm until a convergence threshold is reached. The simplest approach is to replace the worst point with a point reflected through the centroid of the remaining $n$ points. If this point is better than the best current point, then we can try stretching exponentially out along this line. On the other hand, if this new point isn't much better than the previous value, then we are stepping across a valley, so we shrink the simplex towards a better point. The pseudocode of the algorithm is reported in Alg.~\ref{alg:neldermead}.
+
+\begin{algorithm}
+\caption{Nelder-Mead algorithm}\label{alg:neldermead}
+\begin{algorithmic}[1]
+\Procedure{NelderMead}{$f,\xv_\text{init}$}\Comment{$\xv_\text{init} \in \Real^p$ starting point}
+\State {\bf 1) Initialization}
+\State\hspace{\algorithmicindent} Choose $n+1$ vertices of the simplex, $\xv_1,\ldots,\xv_{n+1}$, where
+\State\hspace{\algorithmicindent}\hspace{\algorithmicindent} $\xv_1 \gets \xv_\text{init}$
+\State\hspace{\algorithmicindent}\hspace{\algorithmicindent} $\xv_j = \xv_1 + h_j \cdot \ev_j$ \Comment{where $\ev_j$ is the unit vector of the $j$-th coordinate axis in $\Real^n$ and $h_j$ is a step-size in the direction of $\ev_j$}
+\State {\bf 2) Order} according to the values at the vertices:
+\State\hspace{\algorithmicindent} $f(\xv_1) \le f(\xv_2) \le \ldots \le f(\xv_{n+1})$
+\State Calculate $\xv_o$, the centroid of all points except $\xv_{n+1}$
+\State {\bf 3) Reflection} 
+\State\hspace{\algorithmicindent} Compute the reflected point $\xv_r = \xv_o + \alpha \left( \xv_o - \xv_{n+1} \right), \quad \alpha > 0$
+\State\hspace{\algorithmicindent} If the reflected point is better than the second worst, but not better than the best, i.e.: $f(\xv_1) \le f(\xv_r) \le \ldots \le f(\xv_n)$, 
+\State\hspace{\algorithmicindent} then obtain a new simplex by replacing the worst point $\xv_{n+1}$ with the reflected point $\xv_r$, and go to step 2
+\State {\bf 4) Expansion} 
+\State\hspace{\algorithmicindent} If the reflected point is the best point so far, $f(\xv_r) < f(\xv_1)$ 
+\State\hspace{\algorithmicindent} then compute the expanded point $\xv_e = \xv_r + \gamma (\xv_r - \xv_o), \quad \gamma > 0$
+\State\hspace{\algorithmicindent}\hspace{\algorithmicindent} If the expanded point is better than the reflected point, $f(\xv_e) < f(\xv_r)$
+\State\hspace{\algorithmicindent}\hspace{\algorithmicindent} then obtain a new simplex by replacing the worst point $\xv_{n+1}$ with the expanded point $\xv_e$, and go to step 2
+\State\hspace{\algorithmicindent}\hspace{\algorithmicindent} Else obtain a new simplex by replacing the worst point $\xv_{n+1}$ with the reflected point $\xv_r$, and go to step 2
+\State\hspace{\algorithmicindent} Else (i.e. reflected point is not better than second worst) continue at step 6
+\State {\bf 6) Contraction}
+\State\hspace{\algorithmicindent} Here, it is certain that $f(\xv_r) \ge f(\xv_n)$
+\State\hspace{\algorithmicindent} Compute contracted point $\xv_c = \xv_o + \rho \left( \xv_{n+1} - \xv_o \right), \quad 0 < \rho < 0.5$
+\State\hspace{\algorithmicindent}\hspace{\algorithmicindent} If the contracted point is better than the worst point, i.e. $f(\xv_c) < f(\xv_{i+1})$
+\State\hspace{\algorithmicindent}\hspace{\algorithmicindent} then obtain a new simplex by replacing the worst point $\xv_{n+1}$ with the contracted point $\xv_c$, and go to step 2
+\State\hspace{\algorithmicindent} Else go to step 7
+\State {\bf 7) Reduction}
+\State\hspace{\algorithmicindent} For all but the best point, replace the point with 
+\State\hspace{\algorithmicindent} $\xv_i = \xv_1 + \sigma \left( \xv_i - \xv_1 \right), \quad \forall i \in \{ 2, \ldots, n+1 \}$. Go to step 2
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Simulated Annealing method}
+
+The global optimization algorithm named \emph{Simulated Annealing algorithm}~(\cite{kirkpatrick83}) takes inspiration from annealing in metallurgy, a technique involving heating and controlled cooling of a material to increase the size of its crystals and reduce defects. 
+
+The basic idea of the algorithm, in order to avoid to be stuck in a local minimum (maximum), is not to continuously follow a descending (ascending) path along the function $f(\xv)$, but to randomly choose another path from a current point $\xv_i$ towards a new point $\xv_{i+1}$, independently of the value $f(\xv_{i+1})$. This move is managed by the decreasing parameter $T$ (\emph{temperature}), which determines the probability of the event: when $T$ is high, a ``bad'' move is more allowed, while when $T$ tends to zero, the same move is less probable. 
+
+The new point $\xv_{i+1}$ is chosen with probability 1 if $\Delta E = f(\xv_{i+1}) - f(\xv_i) < 0$ (or, conversely, if we have a global maximization problem, $\Delta E = f(\xv_{i+1})-f(\xv_i) > 0 $), where $E$ is called \emph{energy}. Otherwise, the probability of moving from $\xv_i$ to $\xv_{i+1}$ is $e^{\Delta E/T}$. 
+
+The temperature function can be chosen dependent of the maximum number of iterations $N$ allowed: for instance, $T(N) = N-i$ where $i$ is the current iteration.
+
+A critical point is the choice of the point $\xv_{i+1}$: for instance, it may be chosen with a distance $d(T)$ from the current point $\xv_i$, where $d(T)$ is a function decreasing with temperature $T$ (e.g., $d=aT$, with $a$ a proper parameter). 
+
+The algorithm ends when the temperature reaches zero, or when the energy value $\Delta E$ is always below a given threshold for a given number of iterations.
+
+An example of the algorithm is reported in Alg.~\ref{alg:SA}.
+
+\begin{algorithm}
+\caption{Simulated Annealing algorithm}\label{alg:SA}
+\begin{algorithmic}[1]
+\Procedure{SimulatedAnnealing}{$f,\xv_\text{init},N$}\Comment{$\xv_\text{init} \in \Real^p$ starting point, $N$ max iterations}
+\State $T=N$
+\State $\xv_0 = \xv_\text{init}$
+\For{$i=0\ldots N$}
+\State $T = N-i$
+\State $d = aT$
+\State $\xv' = \text{one_neighbor}(\xv_i,d)$
+\State $\Delta E = f(\xv') - f(\xv_i)$
+\If{$a=b$}
+\Else ciao
+\EndIf
+\EndFor
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\section{Retrieving the dynamic parameters of the KUKA LWR}
+
+% This is a nonlinear problem with infinitely many solutions (indeed,
+% 
+% at least one solution exist), but not all having a physical
+% significance. In order to discard such unfeasible solutions, we
+% consider bounds on the components of p and, possibly, on
+% some linear combination of them. We also consider a way of
+% biasing the solution toward a preferred value, formulating in
+% the end the problem as an optimization task. Because of the
+% ill-conditioned nature of the space of solutions, we use global
+% optimization techniques, such as simulated annealing [13].
+% We will illustrate the whole identification procedure with
+% reference to a specific manipulator, the KUKA LWR IV+,
+% although the method is general. Being this robot largely
+% used in research, the problem of obtaining a complete and
+% accurately identified dynamic model has generated much
+% interest 1 . A few alternative approaches [9], [14], [15] to
+% identification of the dynamic coefficients have been proposed
+% recently, which may or may not exploit the numerical value
+% of gravity vector and of the mass matrix returned by the
+% KUKA Fast Research Interface (FRI) [16] at each instant.
+% In particular, we will use our data in [9] as a starting
+% point, recalling briefly the main aspects of the procedure for
+% obtaining the dynamic coefficients on this robot (Sec. II).
+% The dynamic parameter extraction problem is formulated and
+% numerically solved in Sec. III, validating then the results with
+% experimental data in Sec. IV.
+
+\clearpage{\pagestyle{empty}\cleardoublepage}

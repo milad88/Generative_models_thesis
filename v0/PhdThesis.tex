@@ -1,0 +1,189 @@
+\documentclass[a4paper]{report}%{book}
+
+\usepackage{amsmath} % assumes amsmath package installed
+\usepackage{amssymb}  % assumes amsmath package installed
+\usepackage{graphicx}
+\usepackage{lettrine}
+\usepackage{natbib}
+%\usepackage{biblatex}
+\usepackage{wrapfig}
+\usepackage{color}
+\usepackage{caption}
+\usepackage{titlesec}
+%\usepackage{subfigure}
+\usepackage[raggedright]{sidecap}
+\usepackage[table]{xcolor}
+\usepackage{changepage}
+\usepackage{tikz-cd}
+\usepackage{algorithm}
+%\usepackage{algorithmic}
+\usepackage[noend]{algpseudocode}
+%\usepackage{subcaption}
+\usepackage{xcolor}
+
+\usepackage[titletoc]{appendix}
+
+% Consente di definire in modo flessible note e titoli
+\usepackage{fancyhdr}
+\pagestyle{fancy} 
+
+\usepackage{calc}
+
+\usepackage{makecell}
+\usepackage{subfig}
+\newcommand{\NE}{\mathbfsymbol{\rm{NE}}}
+\newcommand{\sbt}{\,\begin{picture}(-1,1)(-1,-3)\circle*{3}\end{picture}\ }
+\def\Real{\mathbb{R}}
+\def\tm{\leavevmode\hbox{$\rm {}^{TM}$}}
+\def\Complex{\mathbb{C}}
+\usepackage{mathtools}
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\usepackage{lipsum}
+\renewcommand\theadalign{cb}
+\renewcommand\theadgape{\Gape[4pt]}
+\renewcommand\cellgape{\Gape[4pt]}
+\usepackage{color}
+
+\usepackage[font=small]{caption}
+%\newcommand*\subsectotoc[1]{\subsection*{#1}\addcontentsline{toc}{subsection}{#1}}
+
+\graphicspath{{Figures/}}
+
+\fancyheadoffset[LE,RO]{\marginparsep+\marginparwidth} 
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}} 
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}} 
+\fancyhf{}
+\fancyhead[LE,RO]{\color{black}\bfseries\thepage} 
+\fancyhead[LO]{\color{black}\bfseries\rightmark} 
+\fancyhead[RE]{\color{black}\bfseries\leftmark} 
+
+
+% Con questo comando si dice a LaTex dove sono memorizzate le figure
+%\graphicspath{{./imgs/}}
+\newcommand{\folder}{./file/}
+
+\usepackage[Bjornstrup]{fncychap}
+
+\definecolor{redSapienza}{RGB}{160, 36, 41}
+
+\colorlet{partbgcolor}{gray!10}% shaded background color for parts
+\colorlet{partnumcolor}{black}% color for numbers in parts
+\colorlet{chapbgcolor}{gray!15}% shaded background color for chapters
+\colorlet{chapnumcolor}{black}% color for numbers in chapters
+
+\renewcommand\DOCH{%
+  \settowidth{\py}{\CNoV\thechapter}
+  \addtolength{\py}{-10pt}
+  \fboxsep=0pt%
+  \colorbox{chapbgcolor}{\rule{0pt}{40pt}\parbox[b]{\textwidth}{\hfill}}%
+  \kern-\py\raise20pt%
+  \hbox{\color{chapnumcolor}\CNoV\thechapter}\\%
+}
+
+\renewcommand\DOTI[1]{%
+  \nointerlineskip\raggedright%
+  \fboxsep=\myhi%
+  \vskip-1ex%
+  \colorbox{chapbgcolor}{\parbox[t]{\mylen}{\CTV\FmTi{#1}}}\par\nobreak%
+  \vskip 40pt%
+}
+
+\renewcommand\DOTIS[1]{%
+  \fboxsep=0pt
+  \colorbox{chapbgcolor}{\rule{0pt}{40pt}\parbox[b]{\textwidth}{\hfill}}\\%
+  \nointerlineskip\raggedright%
+  \fboxsep=\myhi%
+  \colorbox{chapbgcolor}{\parbox[t]{\mylen}{\CTV\FmTi{#1}}}\par\nobreak%
+  \vskip 40pt%
+ }
+\makeatother
+
+\ChTitleVar{\hfill  \it \bf \huge \color{black}}
+\ChNumVar{\fontsize{76}{80}\usefont{OT1}{pzc}{m}{n}\selectfont \color{redSapienza}}
+
+\usepackage{bookmark,hyperref}
+\hypersetup{pdfborder=0 0 0}
+\hypersetup{colorlinks=true,linkcolor=black}
+\hypersetup{citecolor=red}
+
+\pdfinfo{
+   /Author (Milad Kiwan)
+   /Title  (Title)
+   /CreationDate (March 2020)
+   /Subject (Computer science)
+}
+
+\input{boldfacemath.tex}
+
+%%%%%%%%%%%%%%%%%%%%
+% figures
+%%%%%%%%%%%%%%%%%%%%
+%IMAGE DEFINITION
+\def\autoencoder{\includegraphics[scale=0.4]{autoencoder-architecture.png}}
+\def\paratrick{\includegraphics[scale=0.4]{para_trick.png}}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%Con queto comando si può cambaire il modo in cui verranno nominate le
+	%figure. Di default è "Figura", qui viene cambiato in "Fig."
+	%\renewcommand{\figurename}{Fig.}
+
+	% === Frontespizio =======================================
+	% formato della pagina: l'argomento empty sta ad indicare che sia le linee
+	% di testa che quelle di coda sono vuoti e non hanno numeri di pagina
+	\pagenumbering{roman}
+	% Frontespizio: mediante il comando input si legge il frontespizio
+	\input{file/frontespizio}
+	\input{file/Dedication}
+	\input{file/abstract}
+	\input{file/acknowledgements}
+
+
+\tableofcontents
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+%\listoffigures
+ 
+%\listoftables
+
+\pagenumbering{arabic}
+
+\input{file/introduction}
+%\part{Part I}
+\input{file/chap1}
+%\part{Part II}
+\input{file/chap2}
+\input{file/chap3}
+\input{file/chapt4}
+
+\addtocontents{toc}{\bigskip}
+
+\input{file/conclusion}
+
+% \bookmarksetup{startatroot}
+% \part{Appendices}
+
+\fancyhead[RE,LO]{\bfseries Appendices}
+
+%\begin{appendices}
+%\input{file/appendix_ur}
+%\input{file/appendix_kuka}
+%\input{file/appendix_A}
+%\end{appendices}
+
+\fancyhead[RE,LO]{\bfseries Bibliography}
+
+%\bookmarksetup{startatroot}
+\bibliographystyle{plainnat}
+\bibliography{bibliography} 
+\addcontentsline{toc}{chapter}{Bibliography}
+
+\end{document}

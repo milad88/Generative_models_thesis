@@ -1,0 +1,39 @@
+\chapter{Positive definiteness of $\Qm$ in preview-based methods}
+\label{AppendixA}
+
+%\section{The KUKA LWR-IV  robot}
+%\label{app:kuka}
+%from my master thesis
+%
+%\section{The Universal Robots UR10}
+%\label{app:UR10}
+
+
+%\section{Positive definiteness of $\Qm$ in Model-Based Preview methods}
+%\label{app:proof}
+	
+We provide a simple proof that the $\Qm$ matrix in~(\ref{eq:Q_r})  for the {\em MBP}  method will always be symmetric and positive definite, as claimed. 
+A $n  \times  n $ matrix $\Qm$ is symmetric when $\Qm^T=\Qm$, and positive definite iff
+\begin{equation*}
+\vv^T \Qm \vv >0,\  \text{for all} \ \vv \neq \zerov.
+\end{equation*}
+%Equivalently: That all eigenvalues of $\Qm$ are strictly positive. 
+The symmetry of $\Qm$ follows immediately from the construction of this matrix and from the fact that the robot inertia matrix $\Mm(\qv)$ is itself symmetric for all configurations~\cite{siciliano_bk08}.
+%\item For $\Qm$ in~(\ref{eq:LQ_H1}) and~(\ref{eq:LQ_H3}) corresponding to the {\em MTN} and {\em MTND} methods respectively: Let $\gamma$ and $\vv$ be an eigenvalue and corresponding eigenvector respectively for $\Mm_k$, then $\Qm \vv = \Mm_k^2 \vv=\gamma \Mm_k \vv=\gamma^2 \vv$, showing that $\Qm$ has the same set of eigenvectors as $\Mm_k$ with corresponding eigenvalues $\gamma^2_i$ , since all eigenvalues of $\Mm_k$ are strictly positive, then so are the eigenvalues of $\Qm$.
+Splitting now $\vv \neq \zerov$ in two parts $\vv_1$ and $\vv_2$ according to the block matrix structure in~(\ref{eq:Q_r}), $\vv^T \Qm \vv$ can be written as
+\[
+\left(\vv_1^T \ \vv_2^T\right) \, \Qm  \left(\!\begin{array}{c} \vv_1 \\ \vv_2 \end{array}\!\right)= w_k || \Mm_k \vv_1 ||^2 +w_ {k^{+}} ||\Mm_{k^{+}} \vv_2 + T \Sm_{k^{+}} \vv_1 ||^2.
+\]
+%\[
+%\begin{array}{rcl}
+%\left(\vv_1^T \ \vv_2^T\right) \, \Qm  \left(\!\begin{array}{c} \vv_1 \\ \vv_2 \end{array}\!\right)&\!\!\!\!=\!\!\!\!& w_k || \Mm_k \vv_1 ||^2 
+%\\
+%&\!\!\!\!\!\!\!\!&+\, w_ {k^{+}} ||\Mm_{k^{+}} \vv_2 + T \Sm_{k^{+}} \vv_1 ||^2.
+%\end{array}
+%\]
+Being $||\vv_i|| >0$ for all $\vv_i \neq \zerov$, and since $\Mm_k$ and $\Mm_{k^{+}}$ are positive definite, then $\Mm_k \vv_1\neq \zerov$ and $\Mm_{k^{+}} \vv_2 \neq \zerov$ for all $\vv_i \neq \zerov$. Now consider the two cases:
+\begin{itemize}
+	\item $\vv_1 = \zerov, \vv_2 \neq \zerov$. In this case $\vv^T \Qm \vv =w_{k^+} ||\Mm_{k^+}\vv_2||$, and since $w_{k^+} \neq 0$ then $\vv^T \Qm \vv >0$. 
+	\item $\vv_1 \neq \zerov$. Since $w_{k} >0$, then the term $w_k || \Mm_k \vv_1 ||^2 >0$. Since $w_{k^+} >0$ and the norm of a vector is strictly non-negative, then the term $w_ {k^{+}} ||\Mm_{k^{+}} \vv_2 + T \Sm_{k^{+}} \vv_1 ||^2$ is non-negative. Thus, also in this case it follows that  $\vv^T \Qm \vv >0$.    
+\end{itemize}
+For the $\Qm$ matrix of the {\em MBPD} method, the same previous procedure can be used to prove its symmetry and positive definiteness.  

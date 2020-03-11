@@ -1,0 +1,64 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapter1
+
+
+\pagestyle{fancy} 
+\chapter{Variational Auto-Encoder (VAEs)}
+\label{cha:1}
+\vspace{1cm}
+
+
+\section{Introduction}
+\label{sec:}
+One of the reasons for which the generative models have been employed in different type of applications is the powerful and utility of VAE, where they are used to either solve issues in AI like image reconstruction and generation, achieve better results, reduce the computational complexity due to the high dimensionality of the data, find latent space, reduce dimensionality, extract and represent features or learn density distribution of the dataset. In this session it’s given an overview on how a VAE network is structured and what are the main techniques applied to make it useful to each of the issues just mentioned above.
+\vspace{0.3cm}
+
+\section{VAE Structure}
+Before starting to talk about the usage VAEs, it is mandatory to go through the structure of the auto-encoder which is essentially a neural network with a bottleneck in the middle Fig~\ref{fig:autoencoder} designed to reconstruct the original input in an unsupervised way, in other words, it learns an identity function by first reducing the dimension of the data to the bottleneck so as to extract more efficient and compressed representation. Surprisingly The idea was originated in the 1980s, and later promoted by the seminal paper by~\cite{hinton2006reducing}.
+
+\vspace{0.3cm}
+The Auto-Encoder consists of tow connected networks that could be any kind of neural networks (convolutional, or multi-layer perceptron etc) depends on the data it has to deal with, which are:
+\begin{itemize}
+	\item Encoder network: gets the high-dimension input and transform it to into a low-dimension code in the bottleneck, or we can call it representation, latent or features as well again depends on what the usage are we making of the auto-encoder.
+	\item Decoder network: gets the output of the encoder and does essentially the inverse process, or we can say reconstruct the data, likely with larger and larger layers to the last one that outputs the reconstructed original data.
+\end{itemize}
+
+\begin{figure}
+	\centerline
+	\autoencoder
+	\caption{Autoencoder}
+	\label{fig:autoencoder}
+\end{figure} 
+
+We can see already how the auto-encoder networks can give us an efficient way to  impressively represent the data and in lower dimension. So the accomplishment of solutions for the problematics we talked about at beginning of this session, is all about about how we build the bottleneck layer or what will call from now on vector $z$. The VAE~\cite{kingma2013auto} basically is an auto-encoder but the structure of vector $z$ is quite different. For instance what if we need to map the input into a probability distribution $q_{\theta}$ instead of a fixed vector $z$, where $q_{\theta}$ is parameterized by $\theta$, from which we sample or generate $z$, this is what make the VAE to be recognized as a generative model. Where the training is regularized to avoid eventual overfitting  that might occur with auto-encoder architecture and ensure that the distribution $q_{\theta}$ has good parameters to enable the generative process. The way that makes the encoder to be able to produce $q_\theta$ is by composing the bottleneck or the output of a mean $\mu$ and a covariance matrix $\Sigma$ the problem here is that nothing would prevent the this distribution to be extremely narrow, or effectively a single value. To escape the issue, the Kullback–Leibler (KL) divergence-which measures the distance between tow distributions- is introduced  between the distribution produced by the encoder $q_{\theta}(z \ V \ x_i)$ and a unit Gaussian distribution $p(z)$(mean $0$, covariance matrix is the identity matrix) and tell us how much information is lost when using q to represent p, this KL divergence is then introduced as a penalty to the loss function li, which consists of another term as well that is the expected negative likelihood of the $i$-th datapoint $x_i$ as follow:
+
+
+\begin{equation}
+l_i(\theta,\phi)=-E_{z\sim q_\theta (zVx_i)}[\log_{p_\phi}(x_i V z)]+KL(q_\theta (zVx_i)||p(z))
+\label{eq:VAE_loss}
+\end{equation}
+Where $z$ is sampled from $q_\theta$ and $\phi$ the decoder parameters, the purpose of the first term in poor words mean “how much the decoder output is similar to original datapoint $x_i$“. It intuitively leads the decoder to learn to reconstruct the data. The last important part left to talk about is the training one, we can use the gradient descent to optimize the loss with respect to the parameters of the encoder and decoder $\theta$ and $\phi$ respectively. For stochastic gradient descent with step size $\rho$, the encoder parameters are updated using $\theta=\theta-\frac{\partial l}{\partial \theta} $  and the decoder is updated similarly.
+
+
+
+\subsection{Reparameterization Trick:}
+As we can notice at this point that there would be a problem doing the backpropagation step of the gradient descent optimizer, because it does not go through the random node z, therefore we have to implement some trick to circumvent this issue. The reparameterization trick~\cite{kingma2013auto} is essentially done by introducing an auxiliary variable (noise) $\varepsilon$ that allows us to reparameterize $z$ in a way that allows backpropagate to flow through the deterministic nodes as shown in Fig.~\ref{fig:paratrick}, we are basically expressing the random variable $z$ as a deterministic 
+
+\begin{figure}
+	\centerline
+	\paratrick
+	\caption{reparameterization trick}
+	\label{fig:paratrick}
+\end{figure} 
+
+
+%\vspace{1cm}
+\section{Employment of VAEs in generative models for robotics}
+Lets go now through some papers to see where and how the VAEs have been employed and show their effectiveness in various applications of generative models in robotics. The first one~\cite{eslami2016attend} where a framework called by the authors "Attend, infer, repeat" (AIR) the VAE structure here is quite different that the encoder was implemented as a Recurrent Neural Network (RNN), since its purpose is to learn to detect and generate objects, specifically “where is the objects, what are they and how many are they”. The additional recurrence to the structure is basically to detect how many objects are present in the input data. Experiments were designed initially on 2D data particularly on multiple MNIST digits, and reliably the model were able to detect and generate the constituent digits from scratch, it shows advantages over state-of-art generative models computationally and also in terms of generalization to unseen datasets. Other Experiments on 3D datasets, considering scenes consisting of only one of three objects: a red cube, a blue sphere, and a textured cylinder. The network accurately and reliably infers the identity and pose of the object, on the other hand, an identical network trained to predict the ground-truth identity and pose values of the training data has much more difficulty in accurately determining the cube’s orientation.
+
+
+
+
+
+
+\clearpage{\pagestyle{empty}\cleardoublepage}
