@@ -14,7 +14,7 @@
 \contentsline {section}{\numberline {3.2}Exploitation of VAE and GMM in RL}{10}{section.3.2}
 \contentsline {chapter}{\numberline {4}Generative Adversarial Networks (GANs)}{12}{chapter.4}
 \contentsline {section}{\numberline {4.1}Whats a GAN}{12}{section.4.1}
-\contentsline {section}{\numberline {4.2}Generative vs. Discriminative Algorithms}{12}{section.4.2}
+\contentsline {section}{\numberline {4.2}GAN Algothim overview}{12}{section.4.2}
 \vspace \bigskipamount 
-\contentsline {chapter}{Conclusion}{13}{chapter*.8}
-\contentsline {chapter}{Bibliography}{15}{chapter*.9}
+\contentsline {chapter}{Conclusion}{15}{chapter*.9}
+\contentsline {chapter}{Bibliography}{17}{chapter*.10}
