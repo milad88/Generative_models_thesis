@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2020.3.5)  11 MAR 2020 04:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2020.3.5)  13 MAR 2020 15:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -978,7 +978,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 
 
 ]
-<Figures/autoencoder-architecture.png, id=89, 853.1875pt x 397.485pt>
+<Figures/autoencoder-architecture.png, id=93, 853.1875pt x 397.485pt>
 File: Figures/autoencoder-architecture.png Graphic file (type png)
 
 <use Figures/autoencoder-architecture.png>
@@ -994,7 +994,7 @@ Missing character: There is no ú in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ú in font cmr10!
- [3 <./Figures/autoencoder-architecture.png>] <Figures/para_trick.png, id=109, 
+ [3 <./Figures/autoencoder-architecture.png>] <Figures/para_trick.png, id=113, 
 996.72375pt x 599.23875pt>
 File: Figures/para_trick.png Graphic file (type png)
 
@@ -1010,8 +1010,24 @@ Missing character: There is no ù in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
- [4 <./Figures/para_trick.png>] [5])
-(./file/chap2.tex
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--58
+
+ []
+
+[4 <./Figures/para_trick.png>]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ù in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--66
+
+ []
+
+[5]) (./file/chap2.tex
 Chapter 2.
 
 Overfull \hbox (10.0pt too wide) in paragraph at lines 6--6
@@ -1039,7 +1055,7 @@ Missing character: There is no ¶ in font cmr10!
 
 
 
-] <Figures/GMM.png, id=128, 755.82375pt x 408.52625pt>
+] <Figures/GMM.png, id=142, 755.82375pt x 408.52625pt>
 File: Figures/GMM.png Graphic file (type png)
  <use Figures/GMM.png>
 Package pdftex.def Info: Figures/GMM.png used on input line 45.
@@ -1117,13 +1133,29 @@ Missing character: There is no ó in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no à in font cmr10!
 Missing character: There is no ó in font cmr10!
- [11]) (./file/chapt4.tex
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--57
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 58--60
+
+ []
+
+[11]) (./file/chapt4.tex
 Chapter 4.
 
 Overfull \hbox (10.0pt too wide) in paragraph at lines 6--6
 [][][][][][][][][][]  
  []
 
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ù in font cmr10!
 ) (./file/conclusion.tex [12
 
 
@@ -1139,11 +1171,11 @@ less on input line 174.
 Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
 less on input line 182.
 
-(./PhdThesis.bbl) [14
+(./PhdThesis.bbl [14
 
 
 
-]
+]) [15]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 189.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 189.
  (./PhdThesis.aux)
@@ -1152,13 +1184,13 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 189.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 189.
  ) 
 Here is how much of TeX's memory you used:
- 21225 strings out of 493029
- 392193 string characters out of 6136235
- 564180 words of memory out of 5000000
- 24267 multiletter control sequences out of 15000+600000
+ 21254 strings out of 493029
+ 392828 string characters out of 6136235
+ 564627 words of memory out of 5000000
+ 24287 multiletter control sequences out of 15000+600000
  9779 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,12n,84p,2075b,395s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 61i,12n,84p,2075b,445s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist
@@ -1175,10 +1207,10 @@ xmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/urw/zapfchan/uzcmi8a.pfb>
-Output written on PhdThesis.pdf (19 pages, 434702 bytes).
+Output written on PhdThesis.pdf (20 pages, 441662 bytes).
 PDF statistics:
- 308 PDF objects out of 1000 (max. 8388607)
- 260 compressed objects within 3 object streams
- 54 named destinations out of 1000 (max. 500000)
- 169 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 344 PDF objects out of 1000 (max. 8388607)
+ 295 compressed objects within 3 object streams
+ 63 named destinations out of 1000 (max. 500000)
+ 185 words of extra memory for PDF output out of 10000 (max. 10000000)
 

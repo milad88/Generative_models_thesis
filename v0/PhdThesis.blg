@@ -3,44 +3,46 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: PhdThesis.aux
 The style file: plainnat.bst
 Database file #1: bibliography.bib
-You've used 7 entries,
+Warning--empty journal in kleinhans2015g3db
+You've used 13 entries,
             2773 wiz_defined-function locations,
-            635 strings with 6244 characters,
-and the built_in function-call counts, 4065 in all, are:
-= -- 369
-> -- 254
-< -- 6
-+ -- 85
-- -- 78
-* -- 324
-:= -- 604
-add.period$ -- 23
-call.type$ -- 7
-change.case$ -- 46
-chr.to.int$ -- 7
-cite$ -- 14
-duplicate$ -- 180
-empty$ -- 309
-format.name$ -- 91
-if$ -- 871
+            665 strings with 7452 characters,
+and the built_in function-call counts, 7890 in all, are:
+= -- 706
+> -- 524
+< -- 9
++ -- 175
+- -- 162
+* -- 645
+:= -- 1165
+add.period$ -- 42
+call.type$ -- 13
+change.case$ -- 92
+chr.to.int$ -- 13
+cite$ -- 27
+duplicate$ -- 346
+empty$ -- 583
+format.name$ -- 181
+if$ -- 1690
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 7
-newline$ -- 43
-num.names$ -- 28
-pop$ -- 95
+missing$ -- 13
+newline$ -- 73
+num.names$ -- 52
+pop$ -- 196
 preamble$ -- 1
-purify$ -- 39
+purify$ -- 79
 quote$ -- 0
-skip$ -- 156
+skip$ -- 302
 stack$ -- 0
-substring$ -- 174
-swap$ -- 39
-text.length$ -- 3
+substring$ -- 331
+swap$ -- 80
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 77
-warning$ -- 0
-while$ -- 34
+type$ -- 143
+warning$ -- 1
+while$ -- 63
 width$ -- 0
-write$ -- 99
+write$ -- 175
+(There was 1 warning)

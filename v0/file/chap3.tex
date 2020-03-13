@@ -49,10 +49,16 @@ f_c = (\sum_i i ∗ s_{cij} , \sum_j j ∗ s_{cij} )
 \end{equation}
 which forms the autoencoder's bottleneck and essentially it is the learned spatial feature point representation, that will therefore be capable of directly localizing objects in the image. The third and final phase of this framework is same as the first one, but the difference here is that the controller is trained on the feature points of the encoder using same trajectory-centric reinforcement
 learning algorithm.\\
-The experiments of this method showed that it could be used to learn a range of manipulation skills that require close coordination between perception and
+The experiments of this method showed that it could be used to learn a wild range of manipulation skills that require close coordination between perception and
 action, and uses a spatial feature representation of the environment, which is learned as a bottleneck layer in
 an autoencoder. This allows us to learn a compact state from high-dimensional real-world images. Furthermore, since this
 representation corresponds to image-space coordinates of objects in the scene, it is particularly well suited for continuous control. The trajectory-centric RL algorithm we employ can learn a variety of manipulation skills with these spatial
-representations using only tens of trials on the real robot.
+representations using only tens of trials on the real robot.\\
+
+In another work~\cite{nair2018visual} a RL framework was designed to jointly learns representations and policies from raw sensor inputs that achieve arbitrary goals under this representation by practicing to reach self-specified random goals during training. Here shows up the problem of choosing a suitable goal representations, to deal with this, a goal space \c{G} as to be same as the state space \c{S}. As well the problem of high-dimensional observations such as images arises, to handle it the authors once again the rely on VAE to learn a latent embedding for both \c{G} and \c{S}, by executing a random policy to collect state observation and optimize Eq.~\ref{eq:VAE_loss}, an additional online training has been introduced where the VAE is fine-tuned during the policy training each 3000 environment steps on all of the images observed by the policy, because as the policy improve it might visit new state observations where the VAE is not trained on, this additional training helped the performance of the overall algorithm. The final step is to run the RL algorithm which is a value-based one in this work twin delayed deep deterministic
+policy gradients (TD3)~\cite{fujimoto2018addressing} is used, the thing that should be pointed out here that the negative Mahalanobis distance in the latent space were used as a reward function, but it turned out that minimizing this squared distance was equivalent to maximize the probability of the latent goal. This framework for learning general-purpose goal-conditioned policies that can achieve goals specified with target observations.\\
+
+
+
 
 \clearpage{\pagestyle{empty}\cleardoublepage}
