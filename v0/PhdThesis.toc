@@ -3,18 +3,20 @@
 \contentsline {chapter}{Introduction}{1}{chapter*.4}
 \contentsline {chapter}{\numberline {1}Variational Auto-Encoder (VAEs)}{2}{chapter.1}
 \contentsline {section}{\numberline {1.1}Introduction}{2}{section.1.1}
-\contentsline {section}{\numberline {1.2}VAE Structure}{2}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}Reparameterization Trick:}{4}{subsection.1.2.1}
-\contentsline {section}{\numberline {1.3}Employment of VAEs in generative models for robotics}{4}{section.1.3}
-\contentsline {chapter}{\numberline {2}Gaussian mixture models (GMMs)}{6}{chapter.2}
-\contentsline {section}{\numberline {2.1}Introduction}{6}{section.2.1}
-\contentsline {section}{\numberline {2.2}Structure and Learning algorithm}{6}{section.2.2}
-\contentsline {chapter}{\numberline {3}Reinforcement Learning (RL)}{9}{chapter.3}
-\contentsline {section}{\numberline {3.1}What is RL}{9}{section.3.1}
-\contentsline {section}{\numberline {3.2}Exploitation of VAE and GMM in RL}{10}{section.3.2}
-\contentsline {chapter}{\numberline {4}Generative Adversarial Networks (GANs)}{12}{chapter.4}
-\contentsline {section}{\numberline {4.1}Whats a GAN}{12}{section.4.1}
-\contentsline {section}{\numberline {4.2}GAN Algothim overview}{12}{section.4.2}
+\contentsline {section}{\numberline {1.2}VAE Structure}{3}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Reparameterization Trick:}{5}{subsection.1.2.1}
+\contentsline {section}{\numberline {1.3}Employment of VAEs in generative models for robotics}{6}{section.1.3}
+\contentsline {chapter}{\numberline {2}Gaussian mixture models (GMMs)}{8}{chapter.2}
+\contentsline {section}{\numberline {2.1}Introduction}{8}{section.2.1}
+\contentsline {section}{\numberline {2.2}Structure and Learning algorithm}{8}{section.2.2}
+\contentsline {chapter}{\numberline {3}Reinforcement Learning (RL)}{12}{chapter.3}
+\contentsline {section}{\numberline {3.1}What is RL}{12}{section.3.1}
+\contentsline {section}{\numberline {3.2}Exploitation of VAE and GMM in RL}{14}{section.3.2}
+\contentsline {chapter}{\numberline {4}Generative Adversarial Networks (GANs)}{17}{chapter.4}
+\contentsline {section}{\numberline {4.1}What is a GAN}{17}{section.4.1}
+\contentsline {section}{\numberline {4.2}GAN Algothim overview}{18}{section.4.2}
+\contentsline {section}{\numberline {4.3}GANs vs VAEs}{21}{section.4.3}
+\contentsline {section}{\numberline {4.4}Combination between GANs and RL}{22}{section.4.4}
 \vspace \bigskipamount 
-\contentsline {chapter}{Conclusion}{15}{chapter*.9}
-\contentsline {chapter}{Bibliography}{17}{chapter*.10}
+\contentsline {chapter}{Conclusion}{24}{chapter*.9}
+\contentsline {chapter}{Bibliography}{27}{chapter*.10}

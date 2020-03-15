@@ -1,4 +1,4 @@
-\documentclass[a4paper]{report}%{book}
+\documentclass[14pt]{report}%{book}
 
 \usepackage{amsmath} % assumes amsmath package installed
 \usepackage{amssymb}  % assumes amsmath package installed
@@ -98,7 +98,9 @@
   \fboxsep=\myhi%
   \colorbox{chapbgcolor}{\parbox[t]{\mylen}{\CTV\FmTi{#1}}}\par\nobreak%
   \vskip 40pt%
- }
+}
+\renewcommand{\baselinestretch}{1.5}
+
 \makeatother
 
 \ChTitleVar{\hfill  \it \bf \huge \color{black}}
