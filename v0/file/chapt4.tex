@@ -12,7 +12,7 @@ Generative adversarial networks (GAN) is algorithmic architecture that uses two 
 the tow networks could have arbitrary architecture and they are trained simultaneously, one neural network, called the discriminator, is designed as classifier network to evaluate the authenticity  distinguishing between fake and real data instances, while the other one, called generator, is trained to generate data as close to the authentic ones. Meanwhile, the generator is creating new, synthetic instances that it passes to the discriminator. It does so in the hopes that they, too, will be deemed authentic, even though they are fake. The goal of the generator is to generate passable instances to lie without being caught. The goal of the discriminator is to identify those coming from the generator as fake. GANs are a clever way to train a generative model in the same manner of a supervised learning problem.
 
 \section{GAN Algothim overview}
-
+\label{sec:GAN_algorithm}
 To describe the GAN algorithm Fig.~\ref{fig:GAN} it is possible to start from either the generator, or the discriminator, because as mentioned in the previous section it corresponds to a tow-player game, like in chess, conventionally the while starts, but even if black starts that does not change the essence of the game. However, let's start with the more interesting one with is the generative model.\\
 
 \begin{figure}
@@ -51,8 +51,25 @@ The proposed model, as the experiments showed, is very powerful and it does not 
 
 \section{Combination between GANs and RL}
 
-RL is a powerful technique to train an agent to perform a task, so it is capable of achieving that single task specified via its reward function. It an approach that is hard to be scaled to a situation where the agent needs to perform different set of tasks,  such as navigating to varying positions in a room or moving objects to varying locations.~\cite{held2018automatic} has offered an idea that combine RL and GANs that is able to solve this kind of situations, in this framework, instead of learning to optimize a single reward function, an indexed range of reward functions $r^g$ is defined, each goal $g \in G$ corresponds to a set of states $S^g \subset S$, in such way that the goal $g$ is considered to be achieved from any state $s_t \in S$. The policy that should be learned ,given a goal $g$, must perform optimally with respect to $r^g$. The framework uses a simple indicator function to define the reward that gives a measure whether the agent has reached the goal $r^g(s_t, a_t, s_{t+1})=1 \{s_{t+1} \in S^g\}$ where $S^g = \{s_t : d(f(s_t), g)< \epsilon\}$ e $f(·)$ is a function that projects a state into goal space G, $d(.,.)$ is a distance metric, \epsilon acceptable tolerance that determines when the goal is reached. it is also defined a uniform distribution (for simplicity) samples goals uniformly from the set of goals G
+RL is a powerful technique to train an agent to perform a task, so it is capable of achieving that single task specified via its reward function. It an approach that is hard to be scaled to a situation where the agent needs to perform different set of tasks,  such as navigating to varying positions in a room or moving objects to varying locations.~\cite{held2018automatic} has offered an idea that combine RL and GANs that is able to solve this kind of situations, in this framework, instead of learning to optimize a single reward function, an indexed range of reward functions $r^g$ is defined, each goal $g \in G$ corresponds to a set of states $S^g \subset S$, in such way that the goal $g$ is considered to be achieved from any state $s_t \in S$. The policy that should be learned ,given a goal $g$, must perform optimally with respect to $r^g$. The framework uses a simple indicator function to define the reward that gives a measure whether the agent has reached the goal $r^g(s_t, a_t, s_{t+1})=1 \{s_{t+1} \in S^g\}$ where $S^g = \{s_t : d(f(s_t), g)< \epsilon\}$ e $f(·)$ is a function that projects a state into goal space G, $d(.,.)$ is a distance metric, $\epsilon$ acceptable tolerance that determines when the goal is reached. it is also defined a uniform distribution $P_g(g)$ ,although in practice any distribution can be used, over the set of goals $G$ to sample from, so the overall objective function that the authors call it \textit{coverage} will be:
+\begin{equation}
+\pi^*(a_t \mid s_t, g)= \arg{\max_{\pi}}{E_{g\sim P_g(.)} R^g(\pi) }
+\end{equation}
+Where $R^g(\pi)$ is the success probability of each goal. Sampling goals from $P_g(g)$ is modified to be uniform only over a set of goals grounding on the level of difficulty, or in better words, Goals of Intermediate Difficulty (GOID):
+\begin{equation}
+GOID_i := \{ g : R_{min} \leqslant R^g(\pi_i) \leqslant R_{max}\}
+\end{equation}
+Due to sparsity for the reward function the current policy $\pi_i$ for most goals would not get reward, in the way it will be hard to train the policy, to circumvent this, the sampled goal g should grantee that $\pi_i$ is able to receive some minimum expected return $R_{min}$. On the other hand to prevent the policy keeps training on only some of those goals that get very high reward, the $R_{max}$ restriction is added to make the policy train on the goals who are not mastered yet. $GOID_i$ allows the policy to train on wild coverage objective. that was the first part of the algorithm designed in this framework which is partitioned into three stages. The second stage is the Goal-GAN employment, its generator network is used to generate goals that fall in $GOID_i$, from noise $z$, while the discriminator network distinguish the goals that are in $GOID_i$ from those that are not. a modification has been added to the LSGAN introduced implementation in~\citealp{Mao_2017_ICCV} this modification allows to train
+the LSGAN both with positive examples from the distribution we want to approximate and negative examples
+sampled from a distribution that does not share support with the desired one this gave the chance to improve the accuracy of the generative model even though it was trained on few positive samples. This adoption was made by introducing a binary label $y_g$ that permit to train on "negative samples" when $y_g = 0$ then optimize the LSGAN objectives:
+\begin{align}
+min_D V(D) &= E_{g \sim pdata(g)}[y_g(D(g)-b)^2 + (1 -y_g)(D(g)- a)^2] + E_{z∼p_z(z)}[(D(G(z))- a)^2]\\
+max_G V(G) &= E_{z∼p_z(z)}[(D(G(z))- c)^2]
+\end{align}
+using $(a = -1$, $b = 1$, and $c = 0)$. \\At each iteration $i$ the algorithm initially sample the noise vector $z$ to generate a goals $G(z)$  that are used train the RL algorithm this time TRPO with AGE is used as in~\cite{schulman2015high} afterwards the is evaluated to assign a label $y_g$ to each goal
 
-can partitioned into three stages: First, label a set of goals grounding on the level of difficulty
+
+
+
 
 \clearpage{\pagestyle{empty}\cleardoublepage}
