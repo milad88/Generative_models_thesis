@@ -1,4 +1,4 @@
-\begin{thebibliography}{17}
+\begin{thebibliography}{18}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -45,6 +45,12 @@ David Held, Xinyang Geng, Carlos Florensa, and Pieter Abbeel.
 Geoffrey~E Hinton and Ruslan~R Salakhutdinov.
 \newblock Reducing the dimensionality of data with neural networks.
 \newblock \emph{science}, 313\penalty0 (5786):\penalty0 504--507, 2006.
+
+\bibitem[Ho and Ermon(2016)]{DBLP:journals/corr/HoE16}
+Jonathan Ho and Stefano Ermon.
+\newblock Generative adversarial imitation learning.
+\newblock \emph{CoRR}, abs/1606.03476, 2016.
+\newblock URL \url{http://arxiv.org/abs/1606.03476}.
 
 \bibitem[Kingma and Welling(2013)]{kingma2013auto}
 Diederik~P Kingma and Max Welling.

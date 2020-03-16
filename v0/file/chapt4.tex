@@ -69,7 +69,7 @@ max_G V(G) &= E_{z∼p_z(z)}[(D(G(z))- c)^2]
 \end{align}
 using $(a = -1$, $b = 1$, and $c = 0)$. \\At each iteration $i$ the algorithm initially sample the noise vector $z$ to generate a goals $G(z)$  that are used train the RL algorithm this time TRPO with AGE is used as in~\cite{schulman2015high} afterwards the is evaluated to assign a label $y_g$ to each goal, and use these labels to train the goal generator and goal discriminator of the GAN following eq.~\ref{eq:LSGAN_loss}. Few experiments have been done to test this method, one of them was a Ant navigation in a maze, in this case the goals generated have tow dimensions $(x,y)$ and it is been discovered that the generated goals were concentrated in some area were the policy is receiving some expected return signals which obviously need improvements, however still the Goal-GAN can shift the distribution of sample goals of the appropriate difficulty dynamically around the origin in a ring growing manner. Similarly another experiment was made on a multi-path point-mass maze here again the generator was able to produce a multi-modal distribution over the appropriate goal of intermediate level of difficulty. In this last experiments, it is been used N-dimensional Point Mass the full state-space of the N-dimensional Point Mass hypercube. However, the Point Mass can only move within a small subset of this state space, also here the performance was good, using the goal-GAN as a generative model even
 without this prior knowledge, the Goal GAN discovers the feasible portion of the goal space and generate automatically for the policy that are at the appropriate level of difficulty.
-
+One more paper that made use of GAN to generate ..... ~\cite{DBLP:journals/corr/HoE16}
 
 
 
