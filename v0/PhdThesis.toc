@@ -18,5 +18,5 @@
 \contentsline {section}{\numberline {4.3}GANs vs VAEs}{21}{section.4.3}
 \contentsline {section}{\numberline {4.4}Combination between GANs and RL}{22}{section.4.4}
 \vspace \bigskipamount 
-\contentsline {chapter}{Conclusion}{25}{chapter*.9}
-\contentsline {chapter}{Bibliography}{28}{chapter*.10}
+\contentsline {chapter}{Conclusion}{26}{chapter*.9}
+\contentsline {chapter}{Bibliography}{29}{chapter*.10}
