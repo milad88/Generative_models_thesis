@@ -1,4 +1,4 @@
-\begin{thebibliography}{18}
+\begin{thebibliography}{19}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -64,6 +64,13 @@ Ashley Kleinhans, Benjamin~S Rosman, Michael Michalik, B~Tripp, and Renaud
 \newblock G3db: A database of successful and failed grasps with rgb-d images,
   point clouds, mesh models and gripper parameters.
 \newblock 2015.
+
+\bibitem[Liu et~al.(2019)Liu, Zeng, Chen, Tang, and Pan]{liu2019self}
+Yang Liu, Yifeng Zeng, Yingke Chen, Jing Tang, and Yinghui Pan.
+\newblock Self-improving generative adversarial reinforcement learning.
+\newblock In \emph{Proceedings of the 18th International Conference on
+  Autonomous Agents and MultiAgent Systems}, pages 52--60. International
+  Foundation for Autonomous Agents and Multiagent Systems, 2019.
 
 \bibitem[Mao et~al.(2017)Mao, Li, Xie, Lau, Wang, and
   Paul~Smolley]{Mao_2017_ICCV}

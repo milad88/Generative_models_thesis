@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2020.3.5)  17 MAR 2020 23:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2020.3.5)  18 MAR 2020 12:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1202,7 +1202,20 @@ Overfull \hbox (45.78206pt too wide) in paragraph at lines 69--69
 [] 
  []
 
-[23] [24] [25]) (./file/conclusion.tex [26
+[23] [24] <Figures/GAIL_exps.png, id=297, 1194.4625pt x 525.965pt>
+File: Figures/GAIL_exps.png Graphic file (type png)
+
+<use Figures/GAIL_exps.png>
+Package pdftex.def Info: Figures/GAIL_exps.png used on input line 89.
+(pdftex.def)             Requested size: 477.77654pt x 210.38226pt.
+Missing character: There is no Î in font cmr9!
+Missing character: There is no » in font cmr9!
+Missing character: There is no Î in font cmr9!
+Missing character: There is no » in font cmr9!
+Missing character: There is no Î in font cmr10!
+Missing character: There is no » in font cmr10!
+ [25] [26 <./Figures/GAIL_exps.png>] [27])
+(./file/conclusion.tex [28
 
 
 
@@ -1215,11 +1228,11 @@ less on input line 176.
 Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
 less on input line 184.
 
-(./PhdThesis.bbl [27
+(./PhdThesis.bbl [29
 
 
 
-] [28]) [29]
+] [30]) [31]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 191.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 191.
  (./PhdThesis.aux)
@@ -1228,10 +1241,10 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 191.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 191.
  ) 
 Here is how much of TeX's memory you used:
- 21318 strings out of 493029
- 393788 string characters out of 6136235
- 568281 words of memory out of 5000000
- 24319 multiletter control sequences out of 15000+600000
+ 21334 strings out of 493029
+ 394072 string characters out of 6136235
+ 568649 words of memory out of 5000000
+ 24329 multiletter control sequences out of 15000+600000
  9947 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  61i,12n,84p,2878b,457s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1253,10 +1266,10 @@ s/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
 ic/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/z
 apfchan/uzcmi8a.pfb>
-Output written on PhdThesis.pdf (35 pages, 559039 bytes).
+Output written on PhdThesis.pdf (37 pages, 688752 bytes).
 PDF statistics:
- 463 PDF objects out of 1000 (max. 8388607)
- 395 compressed objects within 4 object streams
- 93 named destinations out of 1000 (max. 500000)
- 206 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 486 PDF objects out of 1000 (max. 8388607)
+ 414 compressed objects within 5 object streams
+ 98 named destinations out of 1000 (max. 500000)
+ 211 words of extra memory for PDF output out of 10000 (max. 10000000)
 
