@@ -92,6 +92,16 @@ by model-free reinforcement learning. the procedure followed for each of these e
 \end{figure}
 As we can see in Fig.~\ref{fig:GAILExperiments} this algorithm produced policies performing better than the other baselines except on the Reacher environment, where behavioral cloning performed excellently even though it suffered on the classic control tasks, while we could see in Fig.~\ref{fig:GAILExperiments}b the effect of causal entropy regularization λ we have met in eq.~\ref{eq:gail_loss}, tuning it has changed the performance of the overall algorithm GAIL on the Reacher task. Instead on the other MuJoCo environments, GAIL has achieved at least $70\%$ of the expert behavior for all datasets, as well as performing much better then the other baselines for on all the tasks.\\
 Since the lack of data is one of the main challenges that RL faces. Recent researches solve the problem resort to supervised learning methods by utilizing human expert demonstrations, or by imitation learning like the previous paper we talked about,
-GAIL is not the unique algorithm to take advantage and use of the GAN architecture, Self-Improving Generative Adversarial Reinforcement Learning (SL-GARL)~\cite{liu2019self} as well has developed another framework that once again exploits it to imitate the expert. The general concept repeat itself where the discriminator acts as a classifier and gives a high error values to the initial policies and low error values to the improved ones, while the goal of the generator
- generator generate policies
+GAIL is not the unique algorithm to take advantage and use of the GAN architecture, Self-Improving Generative Adversarial Reinforcement Learning (SL-GARL)~\cite{liu2019self} as well has developed another framework that once again exploits it to imitate the expert. The general concept repeat itself where the discriminator acts as a classifier and gives a high error values to the initial policies and low error values to the improved ones, while the goal of the generator is to generate policies to minimize the error values. In addition SL-GARL employs a black box improvement policy operator, generally speaking this kind of function may get the computational complexity worse, but in this case it helps to shrink the exploration space and a consumption on computational resources. this operator maps a policy and a state value to an improved policy $ \acute{\pi} = I(\pi, V_\pi)$ that is supposed to be better then the direct output from the policy neural network because it produces the expert demonstration of the improved policy. The Self-Improving RL algorithm employs tow neural networks one is for evaluating the state value function  $\hat{V}(s,a)=DNN_\theta(s)$ where $\theta$ is the neural network parameters. The second neural network is similarly for the policy estimator defined as $\hat{\pi}(a \mid s,w)$ where $w$ is the neural network parameters. The loss function at this point is going to be the KL-divergence between the improved policy and the agent one as follows:
+\begin{equation}
+L_I(w,\theta,s) = D_{KL}[I(\hat{\pi}(\cdotp \mid s,w),\hat{V}(\theta,s))\parallel \hat{\pi}(\cdotp \mid s,w)]
+\end{equation}
+Hence the update formulas for SI-RL will be:
+\begin{align}
+\nonumber w_{k+1} &= w_k + \nabla_w L_I(w_k, \theta_k,s) = w_k - I(\hat{\pi}(\cdotp \mid s,w),\hat{V}(\theta,s))\nabla_w \log{\hat{\pi}(\cdotp \mid s,w)}\\
+\nonumber \theta_{k+1} &= \theta_k + \nabla_\theta L_I(w_k, \theta_k,s) = \theta_k - I(\hat{\pi}(\cdotp \mid s,w),\hat{V}(\theta,s))\nabla_\theta \log{\hat{\pi}(\cdotp \mid s,w)} + \nabla_\theta {\parallel \hat{V}(\theta,s) - R \parallel}^2
+\label{eq:update_SI_RL}
+\end{align}
+
+
 \clearpage{\pagestyle{empty}\cleardoublepage}
