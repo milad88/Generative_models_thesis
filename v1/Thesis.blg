@@ -5,45 +5,45 @@ The style file: plainnat.bst
 Database file #1: bibliography.bib
 Warning--empty journal in held2018automatic
 Warning--empty journal in kleinhans2015g3db
-You've used 21 entries,
+You've used 22 entries,
             2773 wiz_defined-function locations,
-            707 strings with 9510 characters,
-and the built_in function-call counts, 13156 in all, are:
-= -- 1151
-> -- 970
+            711 strings with 9794 characters,
+and the built_in function-call counts, 13959 in all, are:
+= -- 1208
+> -- 1071
 < -- 13
-+ -- 324
-- -- 303
-* -- 1106
-:= -- 1978
-add.period$ -- 70
-call.type$ -- 21
-change.case$ -- 162
-chr.to.int$ -- 21
-cite$ -- 44
-duplicate$ -- 551
-empty$ -- 919
-format.name$ -- 332
-if$ -- 2791
++ -- 358
+- -- 336
+* -- 1186
+:= -- 2117
+add.period$ -- 73
+call.type$ -- 22
+change.case$ -- 175
+chr.to.int$ -- 22
+cite$ -- 46
+duplicate$ -- 571
+empty$ -- 950
+format.name$ -- 366
+if$ -- 2945
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 21
-newline$ -- 114
-num.names$ -- 84
-pop$ -- 346
+missing$ -- 22
+newline$ -- 119
+num.names$ -- 88
+pop$ -- 372
 preamble$ -- 1
-purify$ -- 141
+purify$ -- 153
 quote$ -- 0
-skip$ -- 483
+skip$ -- 506
 stack$ -- 0
-substring$ -- 467
-swap$ -- 121
+substring$ -- 469
+swap$ -- 122
 text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 231
+type$ -- 242
 warning$ -- 2
-while$ -- 98
+while$ -- 101
 width$ -- 0
-write$ -- 280
+write$ -- 292
 (There were 2 warnings)

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2020.3.5)  26 MAR 2020 17:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2020.3.5)  26 MAR 2020 22:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1022,29 +1022,29 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 117.
 (./boldfacemath.tex) (./Thesis.aux)
 \openout1 = `Thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 142.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 142.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 143.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 143.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 142.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 143.
 
 (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1121,8 +1121,8 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Info: Redefining \textsubscript on input line 142.
-LaTeX Info: Redefining \microtypecontext on input line 142.
+LaTeX Info: Redefining \textsubscript on input line 143.
+LaTeX Info: Redefining \microtypecontext on input line 143.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1138,7 +1138,7 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (RS)
 )
 \AtBeginShipoutBox=\box47
-Package hyperref Info: Link coloring ON on input line 142.
+Package hyperref Info: Link coloring ON on input line 143.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1148,9 +1148,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count189
 )
-LaTeX Info: Redefining \ref on input line 142.
-LaTeX Info: Redefining \pageref on input line 142.
-LaTeX Info: Redefining \nameref on input line 142.
+LaTeX Info: Redefining \ref on input line 143.
+LaTeX Info: Redefining \pageref on input line 143.
+LaTeX Info: Redefining \nameref on input line 143.
 
 (/usr/share/texlive/texmf-dist/tex/latex/ms/ragged2e.sty
 Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
@@ -1459,6 +1459,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--17
 
  []
 
+<Figures/Domain_randomization.png, id=231, 301.125pt x 168.63pt>
+File: Figures/Domain_randomization.png Graphic file (type png)
+
+<use Figures/Domain_randomization.png>
+Package pdftex.def Info: Figures/Domain_randomization.png used on input line 27
+.
+(pdftex.def)             Requested size: 240.90031pt x 134.90417pt.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -1466,9 +1474,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 40--48
+Underfull \vbox (badness 7963) has occurred while \output is active []
 
- []
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1476,14 +1483,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[17]
-Underfull \hbox (badness 10000) in paragraph at lines 49--51
+[17 <./Figures/Domain_randomization.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 45--53
 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 54--56
 
+ []
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1499,9 +1507,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [19]
-Underfull \vbox (badness 1902) has occurred while \output is active []
-
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -1509,7 +1514,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [20]
-Overfull \hbox (41.83969pt too wide) in paragraph at lines 75--75
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[21]
+Overfull \hbox (41.83969pt too wide) in paragraph at lines 80--80
 [] 
  []
 
@@ -1519,18 +1531,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[21]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[22] <Figures/GAIL_exps.png, id=303, 1194.4625pt x 525.965pt>
+[22] <Figures/GAIL_exps.png, id=310, 1194.4625pt x 525.965pt>
 File: Figures/GAIL_exps.png Graphic file (type png)
 
 <use Figures/GAIL_exps.png>
-Package pdftex.def Info: Figures/GAIL_exps.png used on input line 95.
+Package pdftex.def Info: Figures/GAIL_exps.png used on input line 100.
 (pdftex.def)             Requested size: 477.77654pt x 210.38226pt.
 
 
@@ -1540,12 +1545,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [23]
-Overfull \hbox (52.5664pt too wide) in paragraph at lines 109--109
-[] 
- []
-
-
-Underfull \vbox (badness 2293) has occurred while \output is active []
+Underfull \vbox (badness 1394) has occurred while \output is active []
 
 
 
@@ -1555,12 +1555,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [24 <./Figures/GAIL_exps.png>]
-<Figures/SI_GARL.png, id=324, 1013.7875pt x 362.35374pt>
-File: Figures/SI_GARL.png Graphic file (type png)
-
-<use Figures/SI_GARL.png>
-Package pdftex.def Info: Figures/SI_GARL.png used on input line 122.
-(pdftex.def)             Requested size: 506.89252pt x 181.17642pt.
+Overfull \hbox (52.5664pt too wide) in paragraph at lines 114--114
+[] 
+ []
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1568,7 +1565,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[25]
+[25] <Figures/SI_GARL.png, id=337, 1013.7875pt x 362.35374pt>
+File: Figures/SI_GARL.png Graphic file (type png)
+
+<use Figures/SI_GARL.png>
+Package pdftex.def Info: Figures/SI_GARL.png used on input line 127.
+(pdftex.def)             Requested size: 506.89252pt x 181.17642pt.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -1606,7 +1609,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 ]) (./Thesis.bbl [31
 
 ]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 62.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 69.
 
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1630,19 +1633,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [33]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 198.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 198.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 199.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 199.
  (./Thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 198.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 198.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 198.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 199.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 199.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 199.
  ) 
 Here is how much of TeX's memory you used:
- 25160 strings out of 493029
- 453962 string characters out of 6136235
- 670437 words of memory out of 5000000
- 27884 multiletter control sequences out of 15000+600000
- 84178 words of font info for 145 fonts, out of 8000000 for 9000
+ 25174 strings out of 493029
+ 454294 string characters out of 6136235
+ 670675 words of memory out of 5000000
+ 27893 multiletter control sequences out of 15000+600000
+ 84308 words of font info for 146 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  61i,12n,94p,2880b,471s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
@@ -1663,10 +1666,10 @@ lmro10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf
 /type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/zapfc
 han/uzcmi8a.pfb>
-Output written on Thesis.pdf (43 pages, 919618 bytes).
+Output written on Thesis.pdf (43 pages, 925767 bytes).
 PDF statistics:
- 526 PDF objects out of 1000 (max. 8388607)
- 444 compressed objects within 5 object streams
- 101 named destinations out of 1000 (max. 500000)
- 25277 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 534 PDF objects out of 1000 (max. 8388607)
+ 450 compressed objects within 5 object streams
+ 103 named destinations out of 1000 (max. 500000)
+ 25282 words of extra memory for PDF output out of 29859 (max. 10000000)
 

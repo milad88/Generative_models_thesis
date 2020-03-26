@@ -1,4 +1,4 @@
-\begin{thebibliography}{21}
+\begin{thebibliography}{22}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -13,6 +13,13 @@ Cameron~B Browne, Edward Powley, Daniel Whitehouse, Simon~M Lucas, Peter~I
 \newblock A survey of monte carlo tree search methods.
 \newblock \emph{IEEE Transactions on Computational Intelligence and AI in
   games}, 4\penalty0 (1):\penalty0 1--43, 2012.
+
+\bibitem[Chang et~al.(2015)Chang, Funkhouser, Guibas, Hanrahan, Huang, Li,
+  Savarese, Savva, Song, Su, et~al.]{chang2015shapenet}
+Angel~X Chang, Thomas Funkhouser, Leonidas Guibas, Pat Hanrahan, Qixing Huang,
+  Zimo Li, Silvio Savarese, Manolis Savva, Shuran Song, Hao Su, et~al.
+\newblock Shapenet: An information-rich 3d model repository.
+\newblock \emph{arXiv preprint arXiv:1512.03012}, 2015.
 
 \bibitem[Eslami et~al.(2016)Eslami, Heess, Weber, Tassa, Szepesvari, Hinton,
   et~al.]{eslami2016attend}
