@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2020.3.5)  24 MAR 2020 11:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2020.3.5)  26 MAR 2020 17:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**PhdThesis.tex
-(./PhdThesis.tex
+**Thesis.tex
+(./Thesis.tex
 LaTeX2e <2016/02/01>
 Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/sapthesis/sapthesis.cls
@@ -1019,8 +1019,8 @@ File: bkm-pdftex.def 2011/12/02 v1.24 bookmark driver for pdfTeX (HO)
 ))
 Package hyperref Info: Option `colorlinks' set `true' on input line 117.
 
-(./boldfacemath.tex) (./PhdThesis.aux)
-\openout1 = `PhdThesis.aux'.
+(./boldfacemath.tex) (./Thesis.aux)
+\openout1 = `Thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 142.
 LaTeX Font Info:    ... okay on input line 142.
@@ -1273,18 +1273,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 42--42
 ] [8
 
 
-]) (./PhdThesis.toc
+]) (./Thesis.toc
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 4.
+(Font)              <10.95> on input line 5.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 4.
+(Font)              <8> on input line 5.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 4.
+(Font)              <6> on input line 5.
  [9
 
 ])
 \tf@toc=\write4
-\openout4 = `PhdThesis.toc'.
+\openout4 = `Thesis.toc'.
 
 
 
@@ -1297,14 +1297,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 
-]
+] [2
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
 
-[2]) (./file/chap1.tex
+]) (./file/Background.tex
 Chapter 1.
 LaTeX Font Info:    Try loading font information for OT1+pzc on input line 6.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pzc.fd
@@ -1321,20 +1317,19 @@ Overfull \hbox (10.0pt too wide) in paragraph at lines 6--6
 [][][][][][][][][][]  
  []
 
-<Figures/autoencoder-architecture.png, id=112, 853.1875pt x 397.485pt>
+
+Underfull \vbox (badness 6125) has occurred while \output is active []
+
+ [3
+
+]
+<Figures/autoencoder-architecture.png, id=111, 853.1875pt x 397.485pt>
 File: Figures/autoencoder-architecture.png Graphic file (type png)
 
 <use Figures/autoencoder-architecture.png>
 Package pdftex.def Info: Figures/autoencoder-architecture.png used on input lin
-e 22.
+e 24.
 (pdftex.def)             Requested size: 341.26895pt x 158.99118pt.
- [3
-
-
-
-]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1343,12 +1338,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [4 <./Figures/autoencoder-architecture.png>]
-<Figures/para_trick.png, id=137, 996.72375pt x 599.23875pt>
+<Figures/para_trick.png, id=126, 996.72375pt x 599.23875pt>
 File: Figures/para_trick.png Graphic file (type png)
 
 <use Figures/para_trick.png>
-Package pdftex.def Info: Figures/para_trick.png used on input line 43.
+Package pdftex.def Info: Figures/para_trick.png used on input line 45.
 (pdftex.def)             Requested size: 398.68243pt x 239.69125pt.
+
+Underfull \vbox (badness 8132) has occurred while \output is active []
+
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1364,10 +1362,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [6 <./Figures/para_trick.png>]
-<Figures/GMM.png, id=154, 755.82375pt x 408.52625pt>
+<Figures/GMM.png, id=144, 755.82375pt x 408.52625pt>
 File: Figures/GMM.png Graphic file (type png)
  <use Figures/GMM.png>
-Package pdftex.def Info: Figures/GMM.png used on input line 79.
+Package pdftex.def Info: Figures/GMM.png used on input line 84.
 (pdftex.def)             Requested size: 226.74887pt x 122.55882pt.
 
 
@@ -1376,13 +1374,36 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[7 <./Figures/GMM.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 91--92
+[7]
+<Figures/Reinforcement_learning_diagram.png, id=165, 501.875pt x 484.81125pt>
+File: Figures/Reinforcement_learning_diagram.png Graphic file (type png)
 
- []
+<use Figures/Reinforcement_learning_diagram.png>
+Package pdftex.def Info: Figures/Reinforcement_learning_diagram.png used on inp
+ut line 100.
+(pdftex.def)             Requested size: 250.93687pt x 242.40503pt.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 93--96
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[8 <./Figures/GMM.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[9 <./Figures/Reinforcement_learning_diagram.png>]
+<Figures/GANs.png, id=184, 803.0pt x 532.99126pt>
+File: Figures/GANs.png Graphic file (type png)
+ <use Figures/GANs.png>
+Package pdftex.def Info: Figures/GANs.png used on input line 133.
+(pdftex.def)             Requested size: 321.1943pt x 213.19272pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--139
 
  []
 
@@ -1392,21 +1413,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[8]
+[10]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
-
-[9] [10
-
-]
-Chapter 2.
-
-Overfull \hbox (10.0pt too wide) in paragraph at lines 97--97
-[][][][][][][][][][]  
- []
 
 [11]
 
@@ -1415,79 +1430,59 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[12]) (./file/chap2.tex
-Chapter 3.
-
-Overfull \hbox (10.0pt too wide) in paragraph at lines 6--6
-[][][][][][][][][][]  
- []
-
-[13
-
-
-
-] [14
-
-
-]) (./file/chap3.tex
-Underfull \hbox (badness 10000) in paragraph at lines 9--10
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 23--31
-
- []
-
+[12 <./Figures/GANs.png (PNG copy)>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 32--34
-
- []
+[13] [14
 
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[16]) (./file/chapt4.tex
-Chapter 4.
+]) (./file/GM_Robotics.tex
+Chapter 2.
 
 Overfull \hbox (10.0pt too wide) in paragraph at lines 6--6
 [][][][][][][][][][]  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16--17
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
 
  []
 
-
-Underfull \vbox (badness 1521) has occurred while \output is active []
-
- [17
-
-
+[15
 
 ]
-<Figures/GANs.png, id=249, 803.0pt x 532.99126pt>
-File: Figures/GANs.png Graphic file (type png)
- <use Figures/GANs.png>
-Package pdftex.def Info: Figures/GANs.png used on input line 20.
-(pdftex.def)             Requested size: 321.1943pt x 213.19272pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--26
+Underfull \hbox (badness 10000) in paragraph at lines 14--17
 
  []
 
 
-Underfull \vbox (badness 5908) has occurred while \output is active []
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 40--48
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 49--51
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
@@ -1496,7 +1491,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[18 <./Figures/GANs.png (PNG copy)>]
+[18]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -1504,6 +1499,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [19]
+Underfull \vbox (badness 1902) has occurred while \output is active []
+
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -1511,8 +1509,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [20]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+Overfull \hbox (41.83969pt too wide) in paragraph at lines 75--75
+[] 
+ []
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1527,29 +1526,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[22]
-Overfull \hbox (41.83969pt too wide) in paragraph at lines 69--69
-[] 
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[23]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[24] <Figures/GAIL_exps.png, id=312, 1194.4625pt x 525.965pt>
+[22] <Figures/GAIL_exps.png, id=303, 1194.4625pt x 525.965pt>
 File: Figures/GAIL_exps.png Graphic file (type png)
 
 <use Figures/GAIL_exps.png>
-Package pdftex.def Info: Figures/GAIL_exps.png used on input line 89.
+Package pdftex.def Info: Figures/GAIL_exps.png used on input line 95.
 (pdftex.def)             Requested size: 477.77654pt x 210.38226pt.
 
 
@@ -1558,10 +1539,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[25 <./Figures/GAIL_exps.png>]
-Overfull \hbox (52.5664pt too wide) in paragraph at lines 103--103
+[23]
+Overfull \hbox (52.5664pt too wide) in paragraph at lines 109--109
 [] 
  []
+
+
+Underfull \vbox (badness 2293) has occurred while \output is active []
+
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1569,11 +1554,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[26] <Figures/SI_GARL.png, id=332, 1013.7875pt x 362.35374pt>
+[24 <./Figures/GAIL_exps.png>]
+<Figures/SI_GARL.png, id=324, 1013.7875pt x 362.35374pt>
 File: Figures/SI_GARL.png Graphic file (type png)
 
 <use Figures/SI_GARL.png>
-Package pdftex.def Info: Figures/SI_GARL.png used on input line 116.
+Package pdftex.def Info: Figures/SI_GARL.png used on input line 122.
 (pdftex.def)             Requested size: 506.89252pt x 181.17642pt.
 
 
@@ -1582,7 +1568,28 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[27 <./Figures/SI_GARL.png>]
+[25]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[26 <./Figures/SI_GARL.png>]) (./file/Discussion.tex
+Chapter 3.
+
+Overfull \hbox (10.0pt too wide) in paragraph at lines 6--6
+[][][][][][][][][][]  
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [27
+
+
+
+]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -1596,7 +1603,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 ] [30
 
 
-]) (./PhdThesis.bbl [31
+]) (./Thesis.bbl [31
 
 ]
 LaTeX Font Info:    Try loading font information for T1+lmtt on input line 62.
@@ -1625,19 +1632,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [33]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 198.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 198.
- (./PhdThesis.aux)
+ (./Thesis.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 198.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 198.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 198.
  ) 
 Here is how much of TeX's memory you used:
- 25144 strings out of 493029
- 453526 string characters out of 6136235
- 667087 words of memory out of 5000000
- 27874 multiletter control sequences out of 15000+600000
- 80704 words of font info for 140 fonts, out of 8000000 for 9000
+ 25160 strings out of 493029
+ 453962 string characters out of 6136235
+ 670437 words of memory out of 5000000
+ 27884 multiletter control sequences out of 15000+600000
+ 84178 words of font info for 145 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,12n,94p,2878b,471s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 61i,12n,94p,2880b,471s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
 ips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share
 /texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm
@@ -1650,15 +1657,16 @@ s/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb><
 /usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/p
 ublic/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/
 texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/
-lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf
-/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8
-.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/urw/zapfchan/uzcmi8a.pfb>
-Output written on PhdThesis.pdf (43 pages, 860617 bytes).
+lmro10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf
+/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy1
+0.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts
+/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/zapfc
+han/uzcmi8a.pfb>
+Output written on Thesis.pdf (43 pages, 919618 bytes).
 PDF statistics:
- 523 PDF objects out of 1000 (max. 8388607)
+ 526 PDF objects out of 1000 (max. 8388607)
  444 compressed objects within 5 object streams
- 102 named destinations out of 1000 (max. 500000)
- 23256 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 101 named destinations out of 1000 (max. 500000)
+ 25277 words of extra memory for PDF output out of 29859 (max. 10000000)
 

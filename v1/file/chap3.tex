@@ -3,6 +3,17 @@
 
 
 \pagestyle{fancy} 
+\chapter{Discussion}
+\label{cha:3}
+\vspace{1cm}
+
+\section{Employment of VAEs in generative models for robotics}
+\label{sec:VAE_generative}
+Lets go now through some papers to see where and how the VAEs have been employed and show their effectiveness in various applications of generative models in robotics. The first one~\cite{eslami2016attend} where a framework called by the authors \textsl{Attend, infer, repeat (AIR)} the VAE structure here is quite different that the encoder was implemented as a Recurrent Neural Network (RNN), since its purpose is to learn to detect and generate objects, specifically “where is the objects, what are they and how many are they”. The additional recurrence to the structure is basically to detect how many objects are present in the input data. Experiments were designed initially on 2D data particularly on multiple MNIST digits, and reliably the model were able to detect and generate the constituent digits from scratch, it shows advantages over state-of-art generative models computationally and also in terms of generalization to unseen datasets. Other Experiments on 3D datasets, considering scenes consisting of only one of three objects: a red cube, a blue sphere, and a textured cylinder. The network accurately and reliably infers the identity and pose of the object, on the other hand, an identical network trained to predict the ground-truth identity and pose values of the training data has much more difficulty in accurately determining the cube’s orientation.\\
+
+Moreover, in robotics, grasping and manipulation of various objects is a critical and challenging problem,~\cite{veres2017modeling} has proposed another concept referred to as the grasp motor image (GMI) that combines object perception and a learned prior over grasp configurations, to synthesize new grasps to apply to a different object. At the core of GMI is the autoencoder structure, taking advantage of Deep  Learning (DL), particularly building both encoder and decoder as Convolutional Neural Networks (CNN). The approach followed is intuitive: based on
+perceptual information about an object, and an idea of how an object was previously grasped, collecting a object/grasp pair dataset of successful, cylindrical precision robotic grasps using the V-REP  simulator~\cite{rohmer2013v}, and object files provided by~\cite{kleinhans2015g3db} on a simulated “picking” task. The VAE was trained on this dataset to generate grasps for novel objects. GMI integrates
+perceptual information and grasp configurations using deep generative models. Applying it to a simulated grasping task, has demonstrated the capacity of these models to transfer learned knowledge to novel objects under varying amounts of available training data.\\
 
 
 \section{Exploitation of VAE and GMM in RL}

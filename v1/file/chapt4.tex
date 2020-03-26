@@ -1,0 +1,89 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapter3
+
+
+\pagestyle{fancy} 
+\chapter{define this as well}
+\label{cha:4}
+\vspace{1cm}
+
+\section{GANs vs VAEs}
+
+VAEs are a probabilistic graphical model whose explicit goal is latent modeling, and accounting for or marginalizing out certain variables as part of the modeling process. They can make good generations, though they are ideal in settings where the latent is important. The VAE naturally collapses most dimensions in the latent representations, and you generally get very interpretable dimensions out, its ability to set complex priors in the latent is also nice especially in cases where you know something should make sense or you have a desired latent distribution. As well as we have seen in section~\ref{sec:VAE_generative}, instead GAN is explicitly set up to optimize for generative tasks, though recently it also gained a set of models with a true latent space. The worry of VAE is that it extend the probability distribution over datapoints that does not make sense, whereas GAN may miss them but as a result for a generative model it looks more reasonable. However it is hard to tell which one is better it all depends on the task, because it is hard measure and test. Speaking of VAEs and GANs, it is therefore appropriate mention the work done in~\cite{rahmatizadeh2018vision} they developed an approach that takes as input images of the environment and outputs the next joint configuration of the robot to execute. combination of VAE-GAN structure and LSTM was composed to build a Robot controller using end-to-end learning from demonstration, where the controller is a LSTM used to generate joint commands to control the robot, and it is based on a GMM, instead of predicting all the outputs (joint configurations), they are factorized into one-dimensional distributions, one for each joint configuration. while the VAE-GAN structure consists of three neural networks . The first network is an encoder that finds the distribution of the data and then sample a latent representation $z=q(z\mid x)$. The second part of the autoencoder is a GAN discriminator that takes a real image or a reconstructed image and tries to predict whether it is real or reconstructed. The objective $E_{GAN}$ is then computed as in eq.~\ref{eq:GAN_loss}. regarding VAE, the objective in eq.~\ref{eq:VAE_loss}is changed  in this paper where the first term $[\log_{p_\phi}(x_i \mid z)]$ is replaced by $E_{GAN}$, plus the reconstruction error where they used mean squared error (MSE) between the extracted features from those images in the third convolutional layer of the discriminator as follows: $E_{rec} = MSE(D_3(x), D_3(\tilde{x} ))$ whereas the normal prior imposed to the latent distribution p(z) to regularize the encoder $E_{prior}=KL(q_\theta (z\mid x_i)||p(z))$ is kept. Finally, the error of the autoencoder network can be described as the sum of errors formulated before: $E_{AE} = E_{GAN}+ E_{rec} + E_{prior}$.\\
+The proposed model, as the experiments showed, is very powerful and it does not have any assumption about the task or the shape of objects that are involved in each task. It generated smooth trajectories that follow reasonable path in different situations. This is good since we can train the model on a wide variety of tasks. However, we need large number of demonstrations to successfully learn a single task. At the same time it could be used for a wild variety of tasks given its generalization property acquired from the VAE-GAN structure.
+
+\section{Combination between GANs and RL}
+
+RL is a powerful technique to train an agent to perform a task, so it is capable of achieving that single task specified via its reward function. It an approach that is hard to be scaled to a situation where the agent needs to perform different set of tasks,  such as navigating to varying positions in a room or moving objects to varying locations.~\cite{held2018automatic} has offered an idea that combine RL and GANs that is able to solve this kind of situations, in this framework, instead of learning to optimize a single reward function, an indexed range of reward functions $r^g$ is defined, each goal $g \in G$ corresponds to a set of states $S^g \subset S$, in such way that the goal $g$ is considered to be achieved from any state $s_t \in S$. The policy that should be learned ,given a goal $g$, must perform optimally with respect to $r^g$. The framework uses a simple indicator function to define the reward that gives a measure whether the agent has reached the goal $r^g(s_t, a_t, s_{t+1})=1 \{s_{t+1} \in S^g\}$ where $S^g = \{s_t : d(f(s_t), g)< \epsilon\}$ e $f(·)$ is a function that projects a state into goal space G, $d(.,.)$ is a distance metric, $\epsilon$ acceptable tolerance that determines when the goal is reached. it is also defined a uniform distribution $P_g(g)$ ,although in practice any distribution can be used, over the set of goals $G$ to sample from, so the overall objective function that the authors call it \textit{coverage} will be:
+\begin{equation}
+\pi^*(a_t \mid s_t, g)= \arg{\max_{\pi}}{E_{g\sim P_g(.)} R^g(\pi) }
+\end{equation}
+Where $R^g(\pi)$ is the success probability of each goal. Sampling goals from $P_g(g)$ is modified to be uniform only over a set of goals grounding on the level of difficulty, or in better words, Goals of Intermediate Difficulty (GOID):
+\begin{equation}
+GOID_i := \{ g : R_{min} \leqslant R^g(\pi_i) \leqslant R_{max}\}
+\end{equation}
+Due to sparsity for the reward function the current policy $\pi_i$ for most goals would not get reward, in the way it will be hard to train the policy, to circumvent this, the sampled goal g should grantee that $\pi_i$ is able to receive some minimum expected return $R_{min}$. On the other hand to prevent the policy keeps training on only some of those goals that get very high reward, the $R_{max}$ restriction is added to make the policy train on the goals who are not mastered yet. $GOID_i$ allows the policy to train on wild coverage objective. that was the first part of the algorithm designed in this framework which is partitioned into three stages. The second stage is the Goal-GAN employment, its generator network is used to generate goals that fall in $GOID_i$, from noise $z$, while the discriminator network distinguish the goals that are in $GOID_i$ from those that are not. a modification has been added to the LSGAN introduced implementation in~\citealp{Mao_2017_ICCV} this modification allows to train
+the LSGAN both with positive examples from the distribution we want to approximate and negative examples
+sampled from a distribution that does not share support with the desired one this gave the chance to improve the accuracy of the generative model even though it was trained on few positive samples. This adoption was made by introducing a binary label $y_g$ that permit to train on "negative samples" when $y_g = 0$ then optimize the LSGAN objectives:
+\begin{align}
+\nonumber min_D V(D) &= E_{g \sim pdata(g)}[y_g(D(g)-b)^2 + (1 -y_g)(D(g)- a)^2] + E_{z∼p_z(z)}[(D(G(z))- a)^2]\\ 
+max_G V(G) &= E_{z∼p_z(z)}[(D(G(z))- c)^2]
+\label{eq:LSGAN_loss}
+\end{align}
+using $(a = -1$, $b = 1$, and $c = 0)$. \\At each iteration $i$ the algorithm initially sample the noise vector $z$ to generate a goals $G(z)$  that are used train the RL algorithm this time TRPO with AGE is used as in~\cite{schulman2015high} afterwards the is evaluated to assign a label $y_g$ to each goal, and use these labels to train the goal generator and goal discriminator of the GAN following eq.~\ref{eq:LSGAN_loss}. Few experiments have been done to test this method, one of them was a Ant navigation in a maze, in this case the goals generated have tow dimensions $(x,y)$ and it is been discovered that the generated goals were concentrated in some area were the policy is receiving some expected return signals which obviously need improvements, however still the Goal-GAN can shift the distribution of sample goals of the appropriate difficulty dynamically around the origin in a ring growing manner. Similarly another experiment was made on a multi-path point-mass maze here again the generator was able to produce a multi-modal distribution over the appropriate goal of intermediate level of difficulty. In this last experiments, it is been used N-dimensional Point Mass the full state-space of the N-dimensional Point Mass hypercube. However, the Point Mass can only move within a small subset of this state space, also here the performance was good, using the goal-GAN as a generative model even
+without this prior knowledge, the Goal GAN discovers the feasible portion of the goal space and generate automatically for the policy that are at the appropriate level of difficulty.\\
+One more paper that made use of GAN is Generative Adversarial Imitation Learning (GAIL)~\cite{DBLP:journals/corr/HoE16} where the agent has to imitate an expert behavior, the algorithm make use of the RL algorithm TRPO which at each iteration construct a careful step scheme to update the policy to ensure that the divergence does not occur, simultaneously exploiting the GAN architecture, where the discriminator distinguish between trajectories generated by the generator, in turn, generate trajectories following TRPO, in other words, the generator is the policy to be learned following the lead of the discriminator. Specifically the generator generate a trajectory $\tau_i$ by executing TRPO, then the discriminator updates its parameters $w_i$ to $w_{i+1}$ with the gradient:
+\begin{center}
+$E_{\tau_i}[\nabla_w\log{D_w(x)}] + E_{\tau_E}[\nabla_w\log{(1-D_w(G(z)))}]$
+\end{center}
+afterwards the generator is update function in this paper is composed of tow terms the first is like TRPO algorithm, by finding a trust region in which la policy can move, preventing it of changing too much due to noise in the policy gradient and move it toward expert-like regions of state-action space, and the second term is the casual cross entropy that is used as a cost function or policy regularizer as the following:
+\begin{equation}
+	E_{\tau_i}[\nabla_{\theta}\log{\pi_{\theta}(a \mid s)}Q(s,a)] - \lambda \nabla_{\theta} H(\pi_{\theta})
+\label{eq:gail_loss}
+\end{equation}
+where $\lambda \geqslant 0$ is a hyperparameter and $Q(s,a) = E_{\tau_i}[log{(D_{w+1}(s,a))} \mid s_0=s,a_0 = a]$
+The previous iteration repeat until convergence, in other words like in GAN algorithm, it repeats till finding a saddle point $(\pi, D)$ of the expression~\ref{eq:gail_loss} between the tow approximation functions of the policy and the discriminator.\\
+The algorithm has been tested on 9 physics-based control tasks, varying from low-dimensional control tasks from the classic RL literature for example cartpole, acrobot, and mountain
+car, to difficult high-dimensional tasks such as a 3D humanoid locomotion, solved only recently
+by model-free reinforcement learning. the procedure followed for each of these experiments was firstly to generate an expert behavior be running TRPO (not the generator of the GAN of this algorithm) on the true cost function, the algorithm was compared with three baselines such are Behavioral cloning, Feature expectation matching (FEM), Game-theoretic apprenticeship learning (GTAL). All algorithm had the same neural network architecture to train the policy and have been given the same amount of interactions with the environments.
+
+\begin{figure}
+	\centerline
+	\GAILExperiments
+	\caption{(a) Performance of learned policies. The y-axis is negative cost, scaled so that the expert achieves 1 and a random policy achieves 0. (b) Causal entropy regularization λ on Reacher.}
+	\label{fig:GAILExperiments}
+\end{figure}
+As we can see in Fig.~\ref{fig:GAILExperiments} this algorithm produced policies performing better than the other baselines except on the Reacher environment, where behavioral cloning performed excellently even though it suffered on the classic control tasks, while we could see in Fig.~\ref{fig:GAILExperiments}b the effect of causal entropy regularization λ we have met in eq.~\ref{eq:gail_loss}, tuning it has changed the performance of the overall algorithm GAIL on the Reacher task. Instead on the other MuJoCo environments, GAIL has achieved at least $70\%$ of the expert behavior for all datasets, as well as performing much better then the other baselines for on all the tasks.\\
+GAIL is not the unique algorithm to take advantage and use of the GAN architecture, Self-Improving Generative Adversarial Reinforcement Learning (SL-GARL)~\cite{liu2019self} as well has developed another framework that once again exploits it to imitate the expert. The general concept repeat itself where the discriminator acts as a classifier and gives a high error values to the initial policies and low error values to the improved ones, while the goal of the generator is to generate policies to minimize the error values. In addition SL-GARL employs a black box improvement policy operator, generally speaking this kind of function may get the computational complexity worse, but in this case it helps to shrink the exploration space and a consumption on computational resources. This operator maps a policy and a state value to an improved policy $ \acute{\pi} = I(\pi, V_\pi)$ that is supposed to be better then the direct output from the policy neural network, because it produces the expert demonstration of the improved policy. The Self-Improving RL algorithm employs tow neural networks one is for evaluating the state value function  $\hat{V}(s,a)=DNN_\theta(s)$ where $\theta$ is the neural network parameters. The second neural network is for the policy estimator defined as $\hat{\pi}(a \mid s,w)$ where $w$ is the neural network parameters, this network will be considered as the generator of the GAN. The loss function at this point is going to be the KL-divergence between the improved policy and the agent one as follows:
+\begin{equation}
+L_I(w,\theta,s) = D_{KL}[I(\hat{\pi}(\cdotp \mid s,w),\hat{V}(\theta,s))\parallel \hat{\pi}(\cdotp \mid s,w)]
+\end{equation}
+Hence the update formulas for SI-RL will be:
+\begin{align}
+\nonumber w_{k+1} &= w_k + \nabla_w L_I(w_k, \theta_k,s) = w_k - I(\hat{\pi}(\cdotp \mid s,w),\hat{V}(\theta,s))\nabla_w \log{\hat{\pi}(\cdotp \mid s,w)}\\
+\nonumber \theta_{k+1} &= \theta_k + \nabla_\theta L_I(w_k, \theta_k,s) = \theta_k - I(\hat{\pi}(\cdotp \mid s,w),\hat{V}(\theta,s))\nabla_\theta \log{\hat{\pi}(\cdotp \mid s,w)} + \nabla_\theta {\parallel \hat{V}(\theta,s) - R \parallel}^2
+\label{eq:update_SI_RL}
+\end{align}
+The outputs of these tow networks, The state value $\hat{V}(\theta,s)$ and the initial policy $ \hat{\pi}(\cdotp \mid s,w)$ are then passed to the operator $I$. The inclusion of the GAN was by adding a discriminator which distinguish between improved policy which will interact with the environment and the initial one generated by the policy network, the figure Fig.~\ref{fig:SIGARL} describe the architecture and data flow of the framework. The authors of this paper have evaluated three different algorithms to implement the policy improvement operator:
+\begin{itemize}
+	\item \textbf{ trust region policy optimization (TRPO):}  which can be used as policy improvement operator directly without any modification, because of the monotonic improvement guaranteed in TRPO
+	\item \textbf{Monte Carlo tree search (MCTS):}~\cite{browne2012survey} is a search algorithm that uses randomness for deterministic problems difficult or impossible to solve using other approaches, it is based on tree data structure, it can be used as
+	a planning-based police improvement operator. It provides a long term panning ability compared to the policy gradient methods
+	\item \textbf{cross entropy
+		method (CEM):} Since all policies are parametrized by some network parameters, and the aim is to modify these parameters in such way that the total discount reward is maximized, this method take this problem as a black box with respect to the parameter $\theta$, and it maintains
+	a distribution over parameter vectors and moves the distribution
+	towards parameters with a higher reward.
+\end{itemize}
+\begin{figure}
+	\centerline
+	\SIGARL
+	\caption{The architecture of SI-GARL framework. Arrows with solid lines show how the data transfer between modules, and
+	those with dotted lines show the feedback signal used to update the networks. The orange blocks represent the internal data.
+	The grey circle represents the policy improvement operator seen as a black box}
+	\label{fig:SIGARL}
+\end{figure}
+
+Both GAN and self-improving procedures show their potential in multiple test domains either against typical deep reinforcement learning (DRL) algorithms like DQN or the actor-critic algorithms like Asynchronous Actor-Critic Agents (A3C).
+
+Since the lack of data is one of the main challenges that RL faces. Recent researches solve the problem resort to supervised learning methods by utilizing human expert demonstrations, or by imitation learning like the previous paper we talked about,
+\clearpage{\pagestyle{empty}\cleardoublepage}
