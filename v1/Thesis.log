@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2020.3.5)  26 MAR 2020 22:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2020.3.5)  2 APR 2020 20:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1342,7 +1342,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 File: Figures/para_trick.png Graphic file (type png)
 
 <use Figures/para_trick.png>
-Package pdftex.def Info: Figures/para_trick.png used on input line 45.
+Package pdftex.def Info: Figures/para_trick.png used on input line 46.
 (pdftex.def)             Requested size: 398.68243pt x 239.69125pt.
 
 Underfull \vbox (badness 8132) has occurred while \output is active []
@@ -1365,7 +1365,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 <Figures/GMM.png, id=144, 755.82375pt x 408.52625pt>
 File: Figures/GMM.png Graphic file (type png)
  <use Figures/GMM.png>
-Package pdftex.def Info: Figures/GMM.png used on input line 84.
+Package pdftex.def Info: Figures/GMM.png used on input line 85.
 (pdftex.def)             Requested size: 226.74887pt x 122.55882pt.
 
 
@@ -1380,7 +1380,7 @@ File: Figures/Reinforcement_learning_diagram.png Graphic file (type png)
 
 <use Figures/Reinforcement_learning_diagram.png>
 Package pdftex.def Info: Figures/Reinforcement_learning_diagram.png used on inp
-ut line 100.
+ut line 101.
 (pdftex.def)             Requested size: 250.93687pt x 242.40503pt.
 
 
@@ -1400,10 +1400,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 <Figures/GANs.png, id=184, 803.0pt x 532.99126pt>
 File: Figures/GANs.png Graphic file (type png)
  <use Figures/GANs.png>
-Package pdftex.def Info: Figures/GANs.png used on input line 133.
+Package pdftex.def Info: Figures/GANs.png used on input line 134.
 (pdftex.def)             Requested size: 321.1943pt x 213.19272pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 128--139
+Underfull \hbox (badness 10000) in paragraph at lines 129--140
 
  []
 
@@ -1474,9 +1474,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [16]
-Underfull \vbox (badness 7963) has occurred while \output is active []
-
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -1484,12 +1481,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [17 <./Figures/Domain_randomization.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 45--53
+Underfull \hbox (badness 10000) in paragraph at lines 46--54
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--56
+Underfull \hbox (badness 10000) in paragraph at lines 55--57
 
  []
 
@@ -1521,7 +1518,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [21]
-Overfull \hbox (41.83969pt too wide) in paragraph at lines 80--80
+Overfull \hbox (41.83969pt too wide) in paragraph at lines 81--81
 [] 
  []
 
@@ -1535,7 +1532,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 File: Figures/GAIL_exps.png Graphic file (type png)
 
 <use Figures/GAIL_exps.png>
-Package pdftex.def Info: Figures/GAIL_exps.png used on input line 100.
+Package pdftex.def Info: Figures/GAIL_exps.png used on input line 101.
 (pdftex.def)             Requested size: 477.77654pt x 210.38226pt.
 
 
@@ -1555,7 +1552,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [24 <./Figures/GAIL_exps.png>]
-Overfull \hbox (52.5664pt too wide) in paragraph at lines 114--114
+Overfull \hbox (52.5664pt too wide) in paragraph at lines 115--115
 [] 
  []
 
@@ -1569,7 +1566,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 File: Figures/SI_GARL.png Graphic file (type png)
 
 <use Figures/SI_GARL.png>
-Package pdftex.def Info: Figures/SI_GARL.png used on input line 127.
+Package pdftex.def Info: Figures/SI_GARL.png used on input line 128.
 (pdftex.def)             Requested size: 506.89252pt x 181.17642pt.
 
 
@@ -1599,19 +1596,27 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[28]) (./file/conclusion.tex [29
+[28]) (./file/conclusion.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [29
 
 
 
-] [30
+]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[30]) (./Thesis.bbl [31
 
 
-]) (./Thesis.bbl [31
 
 ]
 LaTeX Font Info:    Try loading font information for T1+lmtt on input line 69.
-
-(/usr/share/texmf/tex/latex/lm/t1lmtt.fd
+ (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 Package microtype Info: Loading generic settings for font family
@@ -1641,13 +1646,13 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 199.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 199.
  ) 
 Here is how much of TeX's memory you used:
- 25174 strings out of 493029
- 454294 string characters out of 6136235
- 670675 words of memory out of 5000000
- 27893 multiletter control sequences out of 15000+600000
+ 25176 strings out of 493029
+ 454326 string characters out of 6136235
+ 670734 words of memory out of 5000000
+ 27895 multiletter control sequences out of 15000+600000
  84308 words of font info for 146 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,12n,94p,2880b,471s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 61i,12n,94p,3302b,471s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
 ips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share
 /texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm
@@ -1666,10 +1671,10 @@ lmro10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf
 /type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/zapfc
 han/uzcmi8a.pfb>
-Output written on Thesis.pdf (43 pages, 925767 bytes).
+Output written on Thesis.pdf (43 pages, 930741 bytes).
 PDF statistics:
- 534 PDF objects out of 1000 (max. 8388607)
- 450 compressed objects within 5 object streams
+ 539 PDF objects out of 1000 (max. 8388607)
+ 455 compressed objects within 5 object streams
  103 named destinations out of 1000 (max. 500000)
  25282 words of extra memory for PDF output out of 29859 (max. 10000000)
 

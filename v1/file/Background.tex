@@ -38,6 +38,7 @@ Where $z$ is sampled from $q_\theta$ and $\phi$ the decoder parameters, the purp
 
 
 \subsection{Reparameterization Trick:}
+\label{cha:VAE_REparam}
 As we can notice at this point that there would be a problem doing the backpropagation step of the gradient descent optimizer, because it does not go through the random node z, therefore we have to implement some trick to circumvent this issue. The reparameterization trick~\cite{kingma2013auto} is essentially done by introducing an auxiliary variable (noise) $\varepsilon$ that allows us to reparameterize $z$ in a way that allows backpropagate to flow through the deterministic nodes as shown in Fig.~\ref{fig:paratrick}, we are basically expressing the random variable $z$ as a deterministic 
 
 \begin{figure}

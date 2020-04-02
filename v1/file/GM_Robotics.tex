@@ -28,7 +28,8 @@ In other words, what actually the planner outputs is a probability distribution 
 	\caption{An overview of sampling from our model architecture}
 	\label{fig:DomainRand}
 \end{figure} 
-To train this architecture the authors took more than 40,000 object meshes found in the ShapeNet object dataset~\cite{chang2015shapenet}
+This architecture was trained on randomly unrealistic generated objected based on than 40,000 object meshes found in the ShapeNet object dataset~\cite{chang2015shapenet}, the experiments of this framework showed its ability to scale to real world objects. Where this learned model has been tested on 30 previously unseen objects chosen to capture the diversity of object dataset obtaining a overall success rate of 80\%.
+
 
 \section{Exploitation of VAE and GMM in RL}
 As mentioned in the previous section, most of the time applying RL algorithm directly on high-dimensional data does not lead to a good performance, so in the kind of situation it is advantageous to make use of the techniques that permit to reduce the dimensionality by representing the data in more suitable way.\\
